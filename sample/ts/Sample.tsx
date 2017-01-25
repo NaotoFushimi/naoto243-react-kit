@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
+const SampleButton = require("../../build/lib/SampleButton/SampleButton.js");
 
 class  SampleApp extends React.Component<any, any>{
     constructor(props) {
@@ -23,7 +24,7 @@ class  SampleApp extends React.Component<any, any>{
     render() {
         return (
             <div >
-                sample
+                <SampleButton />
             </div>
         );
     }

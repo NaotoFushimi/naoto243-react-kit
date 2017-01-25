@@ -22,6 +22,7 @@ if (isProduction){
 }
 
 module.exports = {
+    target : "web",
     entry: {
         bundle : './sample/ts/Sample.tsx'
     },
@@ -56,7 +57,13 @@ module.exports = {
                             compiler: 'typescript',
                             compilerOptions: {
                                 sourceMap: !isProduction
-                            }
+                            },
+                            "exclude": [
+                                "node_modules",
+                                "htdocs",
+                                "src"
+                            ]
+
                         }
                     }
                 ],

@@ -14,20 +14,14 @@ const webpackPlugins = [
     new WebpackNotifierPlugin({alwaysNotify: true}),
 ];
 
-if (isProduction){
-    //圧縮
-    webpackPlugins.push(new webpack.optimize.UglifyJsPlugin({
-        output: { comments: uglifySaveLicense }   // リリースビルドのみ uglify する
-    }));
-}
 
 module.exports = {
     entry: {
-        bundle : './src/ts/App.ts'
+        SampleButton : './src/ts/SampleButton/SampleButton.tsx'
     },
     output: {
-        path : "build",
-        filename: 'build.js',
+        libraryTarget: "commonjs2",
+        filename: 'build/lib/[name]/[name].js',
     },
     target : "node",
     // Turn on sourcemaps
@@ -57,7 +51,13 @@ module.exports = {
                             compiler: 'typescript',
                             compilerOptions: {
                                 sourceMap: !isProduction
-                            }
+                            },
+                            "exclude": [
+                                "node_modules",
+                                "htdocs",
+                                "sample"
+                            ]
+
                         }
                     }
                 ],
