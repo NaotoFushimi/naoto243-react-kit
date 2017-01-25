@@ -1,0 +1,41 @@
+{
+  "name": "frontend-base-20170103",
+  "version": "0.0.1",
+  "description": "Boilerplate for modern frontend environment (2017 Early)",
+  "main": "index.js",
+  "scripts": {
+    "init": "rm -rf .git && yarn install",
+    "test": "./node_modules/.bin/mocha --compilers ts:espower-typescript/guess  test/spec/*-test.* --timeout 30000",
+    "watch": "NODE_ENV=development ./node_modules/.bin/webpack --watch -d --progress --colors --config ./config/webpack.config.js",
+    "prod": "NODE_ENV=production ./node_modules/.bin/webpack -d --progress --colors --config ./config/webpack.config.js",
+    "sample-build": "NODE_ENV=production ./node_modules/.bin/webpack -d --watch --progress --colors --config ./config/example.webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mocha": "^2.2.37",
+    "@types/node": "^6.0.55",
+    "@types/power-assert": "^1.4.29",
+    "@types/react": "^15.0.3",
+    "@types/react-dom": "^0.14.21",
+    "babel-loader": "^6.2.10",
+    "babel-polyfill": "^6.20.0",
+    "css-loader": "^0.26.1",
+    "espower-typescript": "^7.0.0",
+    "espower-typescript-babel": "^0.2.0",
+    "linqts": "^1.7.1",
+    "mocha": "^3.2.0",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-loader": "^1.2.1",
+    "power-assert": "^1.4.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^1.3.3",
+    "typescript": "next",
+    "uglify-save-license": "^0.4.1",
+    "url-loader": "^0.5.7",
+    "webpack": "beta",
+    "webpack-notifier": "^1.5.0"
+  }
+}
