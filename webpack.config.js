@@ -23,11 +23,11 @@ if (isProduction){
 
 module.exports = {
     entry: {
-        bundle : './sample/ts/Sample.tsx'
+        bundle : './src/ts/App.tsx'
     },
     output: {
-        path : "sample",
-        filename: 'sample-build.js',
+        path : "htdocs",
+        filename: 'js/bundle.js',
     },
     // Turn on sourcemaps
     devtool: isProduction ? false : 'source-map' ,
@@ -49,6 +49,9 @@ module.exports = {
                 use: [
                     {
                         loader : "babel-loader",
+                        query: {
+                            presets: ['es2015' , "stage-1"]
+                        }
                     },
                     {
                         loader : "ts-loader",
@@ -81,7 +84,8 @@ module.exports = {
                         loader:"postcss-loader",
                         options : {
                             plugins: () => [
-                                cssnext
+                                require('postcss-cssnext'),
+                                require("postcss-import"),
                             ]
                         }
                     }
@@ -91,7 +95,14 @@ module.exports = {
     },
     externals: {
         //CDNで読み込むやつはここで除外しとくと良い
-
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+        'react-router': 'ReactRouter',
+        'react-addons-transition-group': 'React.addons.TransitionGroup',
+        'react-addons-pure-render-mixin': 'React.addons.PureRenderMixin',
+        'react-addons-create-fragment': 'React.addons.createFragment',
+        'react-addons-update': 'React.addons.update',
+        // "react-dom/lib/EventPluginHub" : "ReactDOM.EventPluginHub"
     },
     performance: {
         hints: false
