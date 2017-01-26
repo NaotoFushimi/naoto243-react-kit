@@ -2,6 +2,7 @@
 
 ## Card
 
+---
 ### SimpleCard
 ```$xslt
 import {SimpleCard} from "naoto243-react-kit";
@@ -10,8 +11,8 @@ import {SimpleCard} from "naoto243-react-kit";
 ```
 #### Props
 hover : boolean (default : false)
+ 
 ---
-
 ### SimpleButton
 ```$xslt
 import {SimpleButton} from "naoto243-react-kit";
@@ -21,4 +22,5 @@ import {SimpleButton} from "naoto243-react-kit";
 </SimpleButton>
 ```
 #### Props
--
+none
+
