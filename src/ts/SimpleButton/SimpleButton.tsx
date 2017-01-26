@@ -51,7 +51,7 @@ export default class SimpleButton extends React.Component<SimpleButtonProps, any
 
         const lastClassName = [css([...styleBase , this.props.className])].join(" ");
 
-        const {...other} = this.props;
+        const {className , ...other} = this.props;
 
         return (
             <div onClick={(e)=>{

@@ -30,7 +30,7 @@ export default class SimpleCard extends React.Component<SimpleCardProps, {}>{
         if (this.props.hover) styleBase.push(styles.hover)
         const lastClassName = [css([...styleBase , this.props.className])].join(" ");
 
-        const {hover , ...other} = this.props;
+        const {hover ,className ,...other} = this.props;
 
         return (
             <div className={lastClassName} {...other}>
