@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-//import {SampleButton} from "../../build/index";
-import {SampleButton} from "naoto243-react-sample-kit";
+//import SampleButton from "../../src/ts/SampleButton/SampleButton";
+//import {SampleButton} from "naoto243-react-kit";
+import SampleButton from "../../lib/SampleButton"
 
 
-class  SampleApp extends React.Component<any, any>{
+class SampleApp extends React.Component<any, any>{
     constructor(props) {
         super(props);
     }
