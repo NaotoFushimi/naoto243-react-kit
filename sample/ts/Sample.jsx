@@ -6,7 +6,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var React = require("react");
 var ReactDom = require("react-dom");
-var SampleButton_1 = require("../../build/SampleButton/SampleButton");
+//import {SampleButton} from "../../build/index";
+var naoto243_react_sample_kit_1 = require("naoto243-react-sample-kit");
 var SampleApp = (function (_super) {
     __extends(SampleApp, _super);
     function SampleApp(props) {
@@ -25,7 +26,7 @@ var SampleApp = (function (_super) {
     };
     SampleApp.prototype.render = function () {
         return (<div>
-                <SampleButton_1.default hoge={true}/>
+                <naoto243_react_sample_kit_1.SampleButton hoge={true}/>
             </div>);
     };
     return SampleApp;

@@ -1,5 +1,5 @@
 {
-  "name": "my-react-sample-kit",
+  "name": "naoto243-react-kit",
   "version": "0.0.1",
   "description": "Boilerplate for modern frontend environment (2017 Early)",
   "main": "build/index.js",
@@ -12,7 +12,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "@types/mocha": "^2.2.37",
     "@types/node": "^6.0.55",
     "@types/power-assert": "^1.4.29",

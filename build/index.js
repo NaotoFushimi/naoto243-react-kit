@@ -1,1 +1,1 @@
-export const SampleButtonW = require("./SampleButton/SampleButton").default;
+export const SampleButton = require("./SampleButton/SampleButton").default;
