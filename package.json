@@ -1,12 +1,12 @@
 {
   "name": "naoto243-react-kit",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Boilerplate for modern frontend environment (2017 Early)",
-  "main": "build/index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "init": "rm -rf .git && yarn install",
     "test": "./node_modules/.bin/mocha --compilers ts:espower-typescript/guess  test/spec/*-test.* --timeout 30000",
-    "watch": "tsc -w --outDir build/ --rootDir src/ts -d",
+    "watch": "tsc -w --outDir lib/ --rootDir src/ts -d",
     "prod": "NODE_ENV=production ./node_modules/.bin/webpack -d --progress --colors --config ./config/webpack.config.js",
     "sample-build": "NODE_ENV=production ./node_modules/.bin/webpack -d --watch --progress --colors --config ./config/example.webpack.config.js"
   },
@@ -16,7 +16,7 @@
     "@types/mocha": "^2.2.37",
     "@types/node": "^6.0.55",
     "@types/power-assert": "^1.4.29",
-    "@types/react": "^15.0.3",
+    "@types/react": "^15.0.4",
     "@types/react-dom": "^0.14.21",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.20.0",
@@ -25,6 +25,7 @@
     "espower-typescript-babel": "^0.2.0",
     "linqts": "^1.7.1",
     "mocha": "^3.2.0",
+    "naoto243-react-kit": "^0.0.3",
     "postcss-cssnext": "^2.9.0",
     "postcss-loader": "^1.2.1",
     "power-assert": "^1.4.2",

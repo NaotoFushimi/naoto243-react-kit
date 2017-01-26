@@ -84,7 +84,8 @@ module.exports = {
                                 "src",
                                 "test",
                                 "config",
-                                "build"
+                                "build",
+                                "lib",
                             ]
 
                         }
