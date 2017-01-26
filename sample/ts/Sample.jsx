@@ -6,10 +6,10 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var React = require("react");
 var ReactDom = require("react-dom");
-//import SampleButton from "../../src/ts/SampleButton/SampleButton";
-var naoto243_react_kit_1 = require("naoto243-react-kit");
+var SimpleCard_1 = require("../../src/ts/SimpleCard/SimpleCard");
+var SimpleButton_1 = require("../../src/ts/SimpleButton/SimpleButton");
 //import SampleButton from "../../lib/SampleButton"
-//import AlertButton from "../../lib/AlertButton"
+//import AlertButton from "../../lib/AlertButton";
 var SampleApp = (function (_super) {
     __extends(SampleApp, _super);
     function SampleApp(props) {
@@ -28,10 +28,25 @@ var SampleApp = (function (_super) {
     };
     SampleApp.prototype.render = function () {
         return (<div>
-                <naoto243_react_kit_1.SampleButton hoge={true}/>
-                <naoto243_react_kit_1.AlertButton />
+                <SimpleCard_1.default style={{
+            width: "320px",
+            height: "400px",
+            margin: "24px",
+        }}>
+                    <div>
+                        Card
+                        <SimpleCard_1.default>
+                            hoge
+                        </SimpleCard_1.default>
+                    </div>
+                    <SimpleButton_1.default>
+                        click
+                    </SimpleButton_1.default>
+                </SimpleCard_1.default>
             </div>);
     };
     return SampleApp;
 }(React.Component));
+var dom = document.createElement("div");
+dom.style.webkitTapHighlightColor;
 ReactDom.render(<SampleApp />, document.getElementById("app"));

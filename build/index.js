@@ -1,2 +1,4 @@
-export const SampleButton = require("./SampleButton/SampleButton").default;
-export const AlertButton = require("./AlertButton/AlertButton").default;
+//export const SampleButton : React.ComponentClass<{hoge: boolean}> = require("./SampleButton/SampleButton").default;
+//export const AlertButton : React.ComponentClass<{}> = require("./AlertButton/AlertButton").default;
+export const SimpleButton = require("./SimpleButton/SimpleButton").default;
+export const SimpleCard = require("./SimpleCard/SimpleCard").default;

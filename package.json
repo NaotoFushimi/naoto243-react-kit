@@ -39,5 +39,11 @@
     "url-loader": "^0.5.7",
     "webpack": "beta",
     "webpack-notifier": "^1.5.0"
+  },
+  "dependencies": {
+    "aphrodite": "^1.1.0",
+    "postcss-flow-root": "^0.0.2",
+    "radium": "^0.18.1",
+    "react-ink": "^6.1.0"
   }
 }

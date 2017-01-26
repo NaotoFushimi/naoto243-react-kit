@@ -1,5 +1,6 @@
 import * as React from 'react';
-export declare const SampleButton: React.ComponentClass<{
-    hoge: boolean;
+import { SimpleButtonProps } from "./SimpleButton/SimpleButtonProps";
+export declare const SimpleButton: React.ComponentClass<SimpleButtonProps>;
+export declare const SimpleCard: React.ComponentClass<{
+    SimpleCardProps;
 }>;
-export declare const AlertButton: React.ComponentClass<{}>;
