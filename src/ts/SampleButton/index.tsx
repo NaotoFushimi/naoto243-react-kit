@@ -1,4 +1,4 @@
 import * as React from 'react';
 
-const s : React.ComponentClass<{hoge: boolean}> = require("./SampleButton").default;
-export default s;
+const module : React.ComponentClass<{hoge: boolean}> = require("./SampleButton").default;
+export default module;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-declare const s: React.ComponentClass<{
+declare const module: React.ComponentClass<{
     hoge: boolean;
 }>;
-export default s;
+export default module;
