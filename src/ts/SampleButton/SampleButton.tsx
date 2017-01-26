@@ -1,14 +1,6 @@
 import * as React from 'react';
 
-interface Props {
-
-}
-
-interface State {
-
-}
-
-export default class SampleButton extends React.Component<Props, State>{
+export default class SampleButton extends React.Component<{hoge : boolean}, any>{
     constructor(props) {
         super(props);
     }
@@ -16,7 +8,7 @@ export default class SampleButton extends React.Component<Props, State>{
     render() {
         return (
             <div >
-                vvvvvv
+                test
             </div>
         );
     }

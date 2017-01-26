@@ -55,13 +55,36 @@ module.exports = {
                         loader : "ts-loader",
                         options : {
                             compiler: 'typescript',
-                            compilerOptions: {
-                                sourceMap: !isProduction
+                            "compilerOptions": {
+                                "jsx": "react",
+                                "module": "commonjs",
+                                "sourceMap" : true,
+                                "target" : "es2015",
+                                "allowJs" : true,
+                                "pretty" : true,
+                                "experimentalDecorators": true,
+                                "removeComments": false,
+                                "moduleResolution": "node",
+                                "strictNullChecks": true,
+                                "skipLibCheck": true,     // ビルド高速化（型定義内の型チェック無効化）
+                                "alwaysStrict" : true,
+                                "types": [
+                                    "node"
+                                ],
+                                "lib": [
+                                    "es2015",// 使用する標準型定義の指定（ target が ES5, ES2015 以外の場合に必要）
+                                    "es2017",
+                                    "dom",
+                                    "dom.iterable",
+                                    "scripthost"
+                                ],
                             },
                             "exclude": [
                                 "node_modules",
-                                "htdocs",
-                                "src"
+                                "src",
+                                "test",
+                                "config",
+                                "build"
                             ]
 
                         }

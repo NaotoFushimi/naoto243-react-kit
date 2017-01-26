@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "module": "ES6",
-    "sourceMap" : true, 
+    "module": "es6",
+    "sourceMap" : false,
     "target" : "es2015",
-    "allowJs" : true,
+    "allowJs" : false,
     "pretty" : true,
     "experimentalDecorators": true,
     "removeComments": false,
     "moduleResolution": "node",
     "strictNullChecks": true,
     "skipLibCheck": true,     // ビルド高速化（型定義内の型チェック無効化）
-    "alwaysStrict" : true,
     "types": [
       "node"
     ],
@@ -27,8 +26,12 @@
 
   "exclude": [
     "node_modules",
-    "sample"
+    "sample",
+    "build",
+    "test",
+    "config"
   ]
+
 }
 
 

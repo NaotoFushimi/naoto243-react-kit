@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-const SampleButton = require("../../build/lib/SampleButton/SampleButton.js");
+import SampleButton from "../../build/SampleButton/SampleButton"
 
 class  SampleApp extends React.Component<any, any>{
     constructor(props) {
@@ -21,10 +21,11 @@ class  SampleApp extends React.Component<any, any>{
     componentWillUnmount() : void {
         //viewのデストラクタ
     }
+
     render() {
         return (
             <div >
-                <SampleButton />
+                <SampleButton hoge={true} />
             </div>
         );
     }
