@@ -31,11 +31,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
-  version "15.0.3"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.3.tgz#e96870a9ba25b57d788033e88ec143f79c11afcf"
-
-"@types/react@^15.0.4":
+"@types/react@*", "@types/react@^15.0.4":
   version "15.0.4"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.4.tgz#97aedbba00448a137331aa8450232124aeb8d426"
 
@@ -2151,9 +2147,9 @@ nan@^2.3.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.0.tgz#aa8f1e34531d807e9e27755b234b4a6ec0c152a8"
 
-naoto243-react-kit@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/naoto243-react-kit/-/naoto243-react-kit-0.0.3.tgz#d67d519772ece26a423d331151aa47572cae6e10"
+naoto243-react-kit@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/naoto243-react-kit/-/naoto243-react-kit-0.0.6.tgz#7b43e287cab2e2ec1667a9c77a4f83bd224ac38b"
 
 node-emoji@^1.4.1:
   version "1.4.3"
