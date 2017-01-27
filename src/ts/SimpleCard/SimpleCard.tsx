@@ -2,7 +2,7 @@ import * as React from 'react';
 import {SimpleCardProps} from "./SimpleCardProps";
 import { StyleSheet, css } from 'aphrodite';
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     base: {
         boxShadow: "0 2px 1px rgba(0,0,0,0.08),0px 1px 2px 0px rgba(0,0,0,0.18)",
         WebkitTapHighlightColor : "rgba(0,0,0,0)",

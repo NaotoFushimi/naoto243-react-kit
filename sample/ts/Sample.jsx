@@ -8,6 +8,7 @@ var React = require("react");
 var ReactDom = require("react-dom");
 var SimpleCard_1 = require("../../src/ts/SimpleCard/SimpleCard");
 var SimpleButton_1 = require("../../src/ts/SimpleButton/SimpleButton");
+var LoadingButton_1 = require("../../lib/LoadingButton/LoadingButton");
 var SampleApp = (function (_super) {
     __extends(SampleApp, _super);
     function SampleApp(props) {
@@ -42,6 +43,9 @@ var SampleApp = (function (_super) {
                 <SimpleButton_1.default>
                     click
                 </SimpleButton_1.default>
+                <LoadingButton_1.default>
+                    V
+                </LoadingButton_1.default>
             </div>);
     };
     return SampleApp;
