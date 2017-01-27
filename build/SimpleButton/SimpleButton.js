@@ -54,14 +54,15 @@ export default class SimpleButton extends React.Component {
     }
     render() {
         const styleBase = [styles.base];
+        const _a = this.props, { className, onHoverClassName } = _a, other = __rest(_a, ["className", "onHoverClassName"]);
+        const lastClassName = [css([...styleBase, this.props.className])].join(" ");
         if (this.state.isAnimate) {
             styleBase.push(styles.click);
         }
         else {
             styleBase.push(styles.hover);
+            onHoverClassName && styleBase.push(onHoverClassName);
         }
-        const lastClassName = [css([...styleBase, this.props.className])].join(" ");
-        const _a = this.props, { className } = _a, other = __rest(_a, ["className"]);
         return (React.createElement("div", __assign({ onClick: (e) => {
                 if (this.props.onClick != null) {
                     this.props.onClick(e);

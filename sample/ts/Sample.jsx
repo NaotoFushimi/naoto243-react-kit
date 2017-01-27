@@ -8,8 +8,6 @@ var React = require("react");
 var ReactDom = require("react-dom");
 var SimpleCard_1 = require("../../src/ts/SimpleCard/SimpleCard");
 var SimpleButton_1 = require("../../src/ts/SimpleButton/SimpleButton");
-//import SampleButton from "../../lib/SampleButton"
-//import AlertButton from "../../lib/AlertButton";
 var SampleApp = (function (_super) {
     __extends(SampleApp, _super);
     function SampleApp(props) {
@@ -35,14 +33,15 @@ var SampleApp = (function (_super) {
         }}>
                     <div>
                         Card
-                        <SimpleCard_1.default>
+                        <SimpleCard_1.default hover={true}>
                             hoge
                         </SimpleCard_1.default>
                     </div>
-                    <SimpleButton_1.default>
-                        click
-                    </SimpleButton_1.default>
+
                 </SimpleCard_1.default>
+                <SimpleButton_1.default>
+                    click
+                </SimpleButton_1.default>
             </div>);
     };
     return SampleApp;

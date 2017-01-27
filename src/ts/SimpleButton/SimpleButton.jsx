@@ -15,7 +15,6 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 var React = require("react");
 var aphrodite_1 = require("aphrodite");
-var Ink = require("react-ink");
 var styles = aphrodite_1.StyleSheet.create({
     base: {
         boxShadow: "0 2px 4px rgba(0,0,0,0.20),0 1px 1px 0px rgba(0,0,0,0.24)",
@@ -54,23 +53,25 @@ var SimpleButton = (function (_super) {
             _this.setState({ isAnimate: false });
         }, 120);
     };
+    SimpleButton.prototype.onClicked = function (e) {
+        if (this.props.onClick != null) {
+            this.props.onClick(e);
+        }
+        this.setTap();
+    };
     SimpleButton.prototype.render = function () {
-        var _this = this;
         var styleBase = [styles.base];
-        if (this.state.isAnimate) {
+        var _a = this.props, onHoverClassName = _a.onHoverClassName, className = _a.className, other = __rest(_a, ["onHoverClassName", "className"]);
+        if (this.state.isAnimate == true) {
             styleBase.push(styles.click);
         }
         else {
             styleBase.push(styles.hover);
+            onHoverClassName && styleBase.push(onHoverClassName);
         }
         var lastClassName = [aphrodite_1.css(styleBase.concat([this.props.className]))].join(" ");
-        var other = __rest(this.props, []);
-        return (<div onClick={function (e) {
-            if (_this.props.onClick != null) {
-                _this.props.onClick(e);
-            }
-            _this.setTap();
-        }} className={lastClassName} {...other}>
+        return (<div onClick={this.onClicked.bind(this)} className={lastClassName} {...other}>
+                {this.state.isAnimate}
                 {this.props.children}
             </div>);
     };

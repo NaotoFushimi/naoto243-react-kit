@@ -19,7 +19,7 @@ var styles = aphrodite_1.StyleSheet.create({
     base: {
         boxShadow: "0 2px 1px rgba(0,0,0,0.08),0px 1px 2px 0px rgba(0,0,0,0.18)",
         WebkitTapHighlightColor: "rgba(0,0,0,0)",
-        padding: "8px",
+        padding: "16px",
         transition: "all 0.2s cubic-bezier(.25,.8,.25,1)",
         borderRadius: "2px",
         display: "inline-block",
@@ -42,7 +42,7 @@ var SimpleCard = (function (_super) {
         if (this.props.hover)
             styleBase.push(styles.hover);
         var lastClassName = [aphrodite_1.css(styleBase.concat([this.props.className]))].join(" ");
-        var _a = this.props, hover = _a.hover, other = __rest(_a, ["hover"]);
+        var _a = this.props, hover = _a.hover, className = _a.className, other = __rest(_a, ["hover", "className"]);
         return (<div className={lastClassName} {...other}>
                 {this.props.children}
             </div>);
