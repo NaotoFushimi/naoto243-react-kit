@@ -2,6 +2,15 @@
 
 es6 module or TypeScript friendly
 
+install 
+```$xslt
+yarn add naoto243-react-kit
+    or 
+npm install naoto243-react-kit --save 
+
+```
+
+
 ## Components
 
 ---
