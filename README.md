@@ -46,13 +46,13 @@ import {SimpleDrawer} from "naoto243-react-kit";
 ```  
 
 ### Props
-overlayStyle : any;
-overlayClassName : string;
-navStyle : any;
-navClassName :string;
-open : boolean;
-navRender : ()=> component;
-onOverlayTap : ()=> func;
-closeOffset : any; 
-openSpeedSec : number(Seconds);
+overlayStyle : object;  
+overlayClassName : string;  
+navStyle : object;  
+navClassName :string;  
+open : boolean (default : false);  
+navRender : ()=> component;   
+onOverlayTap : ()=> func;   
+closeOffset : number|string  (default : "-220px")  
+openSpeedSec : number(Seconds);    
 
