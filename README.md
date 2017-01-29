@@ -1,6 +1,8 @@
-# My 1st npm & react project
+# My React Library
 
-## Card
+es6 module or TypeScript friendly
+
+## Components
 
 ---
 ### SimpleCard
