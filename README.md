@@ -6,6 +6,8 @@ es6 module or TypeScript friendly
 
 ---
 ### SimpleCard
+
+#### Usage
 ```$xslt
 import {SimpleCard} from "naoto243-react-kit";
 
@@ -16,6 +18,9 @@ hover : boolean (default : false)
  
 ---
 ### SimpleButton
+
+#### Usage
+
 ```$xslt
 import {SimpleButton} from "naoto243-react-kit";
 
@@ -29,6 +34,7 @@ none
 ---
 ### SimpleDrawer
 
+#### Usage
 ```
 import {SimpleDrawer} from "naoto243-react-kit";
 
@@ -47,7 +53,7 @@ import {SimpleDrawer} from "naoto243-react-kit";
 />
 ```  
 
-### Props
+#### Props
 overlayStyle : object;  
 overlayClassName : string;  
 navStyle : object;  
