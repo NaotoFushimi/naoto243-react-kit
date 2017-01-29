@@ -26,7 +26,7 @@ var styles = aphrodite_1.StyleSheet.create({
         position: "relative",
         userSelect: "none",
         textAlign: "center",
-        cursor: "pointer",
+        cursor: "pointer"
     },
     hover: {
         ':hover': {

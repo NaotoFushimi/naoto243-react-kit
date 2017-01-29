@@ -1,6 +1,4 @@
-
-const uniqName = "Asahi-styled-comp1219------xxxxxxx";
-const styledPush  : { [key : string]: string; }= {}
+const uniqName = "naoto243-defineStyle-inline-xxxxxxx";
 
 let styled : HTMLElement;
 
@@ -12,24 +10,23 @@ if (!window[uniqName]){
     styled.id = uniqName;
     styled["type"]= "text/css"
     head.appendChild(styled);
-
 }
+
+let counter : number = 0;
 
 export const compileInit = ( input : { [key : string]: string }) =>{
 
-    const keyMap = {}
+    const keyMap : { [key : string]: string } = {}
 
-    console.log(input)
     Object.keys(input)
         .map((key)=>{
-
-            const  m  : string = "asahi__" + Math.round(Math.random() * 1000000) + "___";
+            const  m  : string = "naoto243-define-style---" + key + "---" + Math.round(Math.random() * 1000000) + "___" + counter;
             keyMap[key] = m;
             styled["innerHTML"] += `\n .${m} { \n`;
             styled["innerHTML"] += input[key];
             styled["innerHTML"] += `\n } \n`;
         })
-
+    counter++;
     return keyMap;
 }
 

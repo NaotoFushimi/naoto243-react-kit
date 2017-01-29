@@ -2,7 +2,7 @@ import * as React from 'react';
 import {LoadingButtonProps} from "./LoadingButtonProps";
 
 import { css } from 'glamor'
-import {compileInit} from "../Asahi/Asahi";
+import {compileInit} from "../DefineStyle/DefineStyle";
 
 let box  : any= css({ backgroundColor: 'red' })
 

@@ -7,12 +7,16 @@ var __extends = (this && this.__extends) || function (d, b) {
 var React = require("react");
 var ReactDom = require("react-dom");
 var SimpleCard_1 = require("../../src/ts/SimpleCard/SimpleCard");
-var SimpleButton_1 = require("../../src/ts/SimpleButton/SimpleButton");
 var LoadingButton_1 = require("../../lib/LoadingButton/LoadingButton");
+var SimpleDrawer_1 = require("../../src/ts/SimpleDrawer/SimpleDrawer");
 var SampleApp = (function (_super) {
     __extends(SampleApp, _super);
     function SampleApp(props) {
-        return _super.call(this, props) || this;
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            open: true
+        };
+        return _this;
     }
     SampleApp.prototype.componentWillMount = function () {
     };
@@ -26,11 +30,24 @@ var SampleApp = (function (_super) {
         //viewのデストラクタ
     };
     SampleApp.prototype.render = function () {
+        var _this = this;
         return (<div>
+                <SimpleDrawer_1.default onOverlayTap={function (e) {
+            _this.setState({
+                open: !_this.state.open
+            });
+        }} open={this.state.open} navRender={function () { return <div>hoge</div>; }} navStyle={{
+            backgroundColor: "#F0F0F0",
+            boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
+        }}/>
                 <SimpleCard_1.default style={{
             width: "320px",
             height: "400px",
             margin: "24px",
+        }} onClick={function () {
+            _this.setState({
+                open: !_this.state.open
+            });
         }}>
                     <div>
                         Card
@@ -40,12 +57,7 @@ var SampleApp = (function (_super) {
                     </div>
 
                 </SimpleCard_1.default>
-                <SimpleButton_1.default>
-                    click
-                </SimpleButton_1.default>
-                <LoadingButton_1.default>
-                    V
-                </LoadingButton_1.default>
+                <LoadingButton_1.default />
             </div>);
     };
     return SampleApp;

@@ -1,5 +1,4 @@
-const uniqName = "Asahi-styled-comp1219------xxxxxxx";
-const styledPush = {};
+const uniqName = "naoto243-defineStyle-inline-xxxxxxx";
 let styled;
 if (!window[uniqName]) {
     window[uniqName] = true;
@@ -14,7 +13,7 @@ export const compileInit = (input) => {
     const keyMap = {};
     Object.keys(input)
         .map((key) => {
-        const m = "asahi-define-style---" + key + "---" + Math.round(Math.random() * 1000000) + "___" + counter;
+        const m = "naoto243-define-style---" + key + "---" + Math.round(Math.random() * 1000000) + "___" + counter;
         keyMap[key] = m;
         styled["innerHTML"] += `\n .${m} { \n`;
         styled["innerHTML"] += input[key];

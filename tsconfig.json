@@ -21,8 +21,14 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
+    "baseUrl" : "./",
+    "paths" : {
+      "@root/*" : ["./*" ],
+      "@tsroot/*" : ["./src/ts/*" ]
+    }
   },
+
 
   "exclude": [
     "node_modules",
