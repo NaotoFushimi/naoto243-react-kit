@@ -32,7 +32,7 @@
 
   "exclude": [
     "node_modules",
-    "sample",
+    "docs",
     "lib",
     "test",
     "config"

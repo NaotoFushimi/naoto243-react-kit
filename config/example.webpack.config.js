@@ -24,7 +24,7 @@ if (isProduction){
 module.exports = {
     //target : "web",
     entry: {
-        bundle : './sample/ts/Sample.tsx'
+        bundle : './docs/ts/Sample.tsx'
     },
     output: {
         path : "sample",
