@@ -18,8 +18,8 @@ var aphrodite_1 = require("aphrodite");
 var styles = aphrodite_1.StyleSheet.create({
     base: {
         boxShadow: "0 2px 4px rgba(0,0,0,0.20),0 1px 1px 0px rgba(0,0,0,0.24)",
-        WebkitTapHighlightColor: "rgba(0,0,0,0)",
         padding: "4px 12px 4px 12px",
+        WebkitTapHighlightColor: "rgba(0,0,0,0)",
         transition: "all 0.2s cubic-bezier(.25,.8,.25,1)",
         borderRadius: "4px",
         display: "inline-block",

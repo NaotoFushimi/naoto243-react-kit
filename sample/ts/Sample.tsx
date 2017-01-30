@@ -1,8 +1,47 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import SimpleCard from "../../src/ts/SimpleCard/SimpleCard";
-import LoadingButton from "../../lib/LoadingButton/LoadingButton";
+
+//require("babel-polyfill")
+
+import { HashRouter, Match, Miss, Link } from 'react-router'
+
 import SimpleDrawer from "../../src/ts/SimpleDrawer/SimpleDrawer";
+import Playground0 from "./Pages/Playground0";
+import Playground1 from "./Pages/Playground1";
+const style = require("./Pages/PageStyle.css");
+
+console.log(style)
+
+const header = ({onTouchMenu})=>{
+    return (
+        <div style={{
+            position : "fixed",
+            top : 0,
+            left : 0,
+            width : "100%",
+            height : "56px",
+            backgroundColor : "#A0A0A0",
+            display : "flex",
+            flexDirection : "row",
+            alignItems : "center"
+        }}>
+            <div
+                style={{
+                    cursor : "pointer"
+                }}
+                onClick={()=> onTouchMenu()}
+            >show menu</div>
+        </div>
+    );
+}
+
+const NoMatch = ()=>{
+    return (
+        <div>
+            404
+        </div>
+    );
+}
 
 
 class SampleApp extends React.Component<any, any>{
@@ -28,51 +67,57 @@ class SampleApp extends React.Component<any, any>{
         //viewのデストラクタ
     }
 
+    renderLinkRow(){
+
+    }
+
+    toggleOpen(){
+        this.setState({
+            open : !this.state.open
+        })
+    }
+
     render() {
         return (
-            <div >
-                <SimpleDrawer
-                    onOverlayTap={(e)=>{
-                        this.setState({
-                            open : !this.state.open
-                        })
-                    }}
-                    open={this.state.open}
-                    navRender={()=><div>hoge</div>}
-                    navStyle={{
-                        backgroundColor : "#F0F0F0",
-                        boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
+            <HashRouter>
+                <div>
 
+                <SimpleDrawer
+                    onOverlayTap={(e)=> this.toggleOpen()}
+                    open={this.state.open}
+                    navRender={()=>{
+                        return (
+                            <div onClick={()=>this.toggleOpen()}>
+                                 <li><Link to="/">Home</Link></li>
+                                 <li><Link to="/pl1">Playground1</Link></li>
+                            </div>
+                        );
                     }}
+                    navStyle={{
+                        width : "300px",
+                        boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
+                    }}
+
+                    closeOffset="-320px"
 
                 />
-                <SimpleCard style={{
-                    width: "320px",
-                    height : "400px",
-                    margin : "24px",
-                }}
-                    onClick={()=>{
-                        this.setState({
-                            open : !this.state.open
-                        })
-
-                    }}
-                >
-                    <div >
-                        Card
-                        <SimpleCard hover={true}>
-                            hoge
-                        </SimpleCard>
+                    {header({
+                        onTouchMenu : ()=> this.toggleOpen()
+                    })}
+                    <div style={{
+                        paddingTop : "56px"
+                    }}>
+                        <div className={style.container}>
+                            <Match exactly pattern="/" component={Playground0} />
+                            <Match exactly pattern="/pl1" component={Playground1} />
+                            <Miss component={NoMatch}/>
+                        </div>
                     </div>
-
-                </SimpleCard>
-                <LoadingButton />
-            </div>
+                </div>
+            </HashRouter>
         );
     }
 }
-const dom = document.createElement("div");
-dom.style.webkitTapHighlightColor
 
 ReactDom.render(<SampleApp /> , document.getElementById("app"));
 

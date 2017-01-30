@@ -22,7 +22,7 @@ if (isProduction){
 }
 
 module.exports = {
-    target : "web",
+    //target : "web",
     entry: {
         bundle : './sample/ts/Sample.tsx'
     },
@@ -50,6 +50,16 @@ module.exports = {
                 use: [
                     {
                         loader : "babel-loader",
+                        query: {
+                            cacheDirectory: true,
+                            presets: [
+                                ["env", {
+                                    "targets": {
+                                        "browsers": ["last 2 versions", "safari >= 7"]
+                                    }
+                                }]
+                            ],
+                        }
                     },
                     {
                         loader : "ts-loader",
@@ -104,7 +114,7 @@ module.exports = {
                         options: {
                             modules: true,
                             localIdentName: "[local]---[hash:base64:10]",
-                            sourceMap: true,
+                            sourceMap: false,
                             importLoaders: 1
                         }
                     },

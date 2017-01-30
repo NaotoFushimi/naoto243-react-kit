@@ -6,9 +6,36 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var React = require("react");
 var ReactDom = require("react-dom");
-var SimpleCard_1 = require("../../src/ts/SimpleCard/SimpleCard");
-var LoadingButton_1 = require("../../lib/LoadingButton/LoadingButton");
+//require("babel-polyfill")
+var react_router_1 = require("react-router");
 var SimpleDrawer_1 = require("../../src/ts/SimpleDrawer/SimpleDrawer");
+var Playground0_1 = require("./Pages/Playground0");
+var Playground1_1 = require("./Pages/Playground1");
+var style = require("./Pages/PageStyle.css");
+console.log(style);
+var header = function (_a) {
+    var onTouchMenu = _a.onTouchMenu;
+    return (<div style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "56px",
+        backgroundColor: "#A0A0A0",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center"
+    }}>
+            <div style={{
+        cursor: "pointer"
+    }} onClick={function () { return onTouchMenu(); }}>show menu</div>
+        </div>);
+};
+var NoMatch = function () {
+    return (<div>
+            404
+        </div>);
+};
 var SampleApp = (function (_super) {
     __extends(SampleApp, _super);
     function SampleApp(props) {
@@ -29,39 +56,42 @@ var SampleApp = (function (_super) {
     SampleApp.prototype.componentWillUnmount = function () {
         //viewのデストラクタ
     };
+    SampleApp.prototype.renderLinkRow = function () {
+    };
+    SampleApp.prototype.toggleOpen = function () {
+        this.setState({
+            open: !this.state.open
+        });
+    };
     SampleApp.prototype.render = function () {
         var _this = this;
-        return (<div>
-                <SimpleDrawer_1.default onOverlayTap={function (e) {
-            _this.setState({
-                open: !_this.state.open
-            });
-        }} open={this.state.open} navRender={function () { return <div>hoge</div>; }} navStyle={{
-            backgroundColor: "#F0F0F0",
-            boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
-        }}/>
-                <SimpleCard_1.default style={{
-            width: "320px",
-            height: "400px",
-            margin: "24px",
-        }} onClick={function () {
-            _this.setState({
-                open: !_this.state.open
-            });
-        }}>
-                    <div>
-                        Card
-                        <SimpleCard_1.default hover={true}>
-                            hoge
-                        </SimpleCard_1.default>
-                    </div>
+        return (<react_router_1.HashRouter>
+                <div>
 
-                </SimpleCard_1.default>
-                <LoadingButton_1.default />
-            </div>);
+                <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
+            return (<div onClick={function () { return _this.toggleOpen(); }}>
+                                 <li><react_router_1.Link to="/">Home</react_router_1.Link></li>
+                                 <li><react_router_1.Link to="/pl1">Playground1</react_router_1.Link></li>
+                            </div>);
+        }} navStyle={{
+            width: "300px",
+            boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
+        }} closeOffset="-320px"/>
+                    {header({
+            onTouchMenu: function () { return _this.toggleOpen(); }
+        })}
+                    <div style={{
+            paddingTop: "56px"
+        }}>
+                        <div className={style.container}>
+                            <react_router_1.Match exactly pattern="/" component={Playground0_1.default}/>
+                            <react_router_1.Match exactly pattern="/pl1" component={Playground1_1.default}/>
+                            <react_router_1.Miss component={NoMatch}/>
+                        </div>
+                    </div>
+                </div>
+            </react_router_1.HashRouter>);
     };
     return SampleApp;
 }(React.Component));
-var dom = document.createElement("div");
-dom.style.webkitTapHighlightColor;
 ReactDom.render(<SampleApp />, document.getElementById("app"));

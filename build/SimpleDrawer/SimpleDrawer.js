@@ -74,10 +74,12 @@ export default class SimpleDrawer extends React.Component {
             overlayOpen: {
                 animationName: [opacityKeyframes],
                 animationDuration: `${openSpeedSec}s`,
+                animationFillMode: "forwards",
             },
             overlayClose: {
                 animationName: [opacityKeyframesErase],
                 animationDuration: `${openSpeedSec}s`,
+                animationFillMode: "forwards",
             }
         });
         return cssClass;
@@ -103,6 +105,7 @@ export default class SimpleDrawer extends React.Component {
             if (openOnce) {
                 overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayOpen);
                 this.overlayComponent.style.width = "100%";
+                this.overlayComponent.style.height = "100%";
             }
             else {
                 overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayOpenInit);
@@ -120,16 +123,16 @@ export default class SimpleDrawer extends React.Component {
                 ];
             setTimeout(() => {
                 if (!this.prevOpen) {
-                    this.overlayComponent.style.width = "0%";
+                    this.overlayComponent.style.width = "0px";
+                    this.overlayComponent.style.height = "0px";
                 }
-            }, this.prevOpenSpeed * 1000);
+            }, this.prevOpenSpeed * 1050);
         }
         openOnce = true;
         this.prevOpen = open ? open : false;
         const lastOverlayClassName = [css([...overlayClassNameBase])].join(" ");
         const lastNavClassName = [css([...navClassNameBase])].join(" ");
         const navStyleBase = navStyle ? navStyle : {};
-        console.log(navStyleBase);
         return (React.createElement("div", null,
             React.createElement("div", { className: lastNavClassName, style: navStyleBase }, navRender && navRender()),
             React.createElement("div", { className: lastOverlayClassName, onClick: (e) => {

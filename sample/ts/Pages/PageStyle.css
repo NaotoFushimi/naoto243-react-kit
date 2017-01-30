@@ -1,0 +1,21 @@
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.componentArea {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 64px;
+}
+
+.page {
+    animation: fadeIn 0.5s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+

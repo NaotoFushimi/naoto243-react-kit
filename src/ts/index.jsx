@@ -1,16 +1,6 @@
-/*
-
-import * as _SampleButton from "./SampleButton/SampleButton";
-
-
-module Vanbox{
-    export const SampleButton = _SampleButton.SampleButton;
-}
-
-export default Vanbox;
-*/
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-__export(require("./SampleButton/SampleButton"));
+//export const SampleButton : React.ComponentClass<{hoge: boolean}> = require("./SampleButton/SampleButton").default;
+//export const AlertButton : React.ComponentClass<{}> = require("./AlertButton/AlertButton").default;
+exports.SimpleButton = require("./SimpleButton/SimpleButton").default;
+exports.SimpleCard = require("./SimpleCard/SimpleCard").default;
+exports.SimpleDrawer = require("./SimpleDrawer/SimpleDrawer").default;

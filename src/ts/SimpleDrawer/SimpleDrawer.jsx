@@ -46,6 +46,22 @@ var SimpleDrawer = (function (_super) {
         if (cssClass) {
             return cssClass;
         }
+        var navOpenAnim = {
+            'from': {
+                left: closeOffset,
+            },
+            'to': {
+                left: 0,
+            }
+        };
+        var navCloseAnim = {
+            'from': {
+                left: 0,
+            },
+            'to': {
+                left: closeOffset,
+            }
+        };
         cssClass = no_important_1.StyleSheet.create({
             overlay: {
                 position: "fixed",
@@ -65,13 +81,22 @@ var SimpleDrawer = (function (_super) {
                 position: "fixed",
                 top: 0,
                 WebkitTapHighlightColor: "rgba(0,0,0,0)",
-                transition: "all " + openSpeedSec + "s cubic-bezier(.25,.8,.25,1)",
             },
             open: {
                 left: 0
             },
             close: {
                 left: closeOffset
+            },
+            navOpen: {
+                animationName: [navOpenAnim],
+                animationDuration: openSpeedSec + "s",
+                animationFillMode: "forwards",
+            },
+            navClose: {
+                animationName: [navCloseAnim],
+                animationDuration: openSpeedSec + "s",
+                animationFillMode: "forwards",
             },
             overlayOpenInit: {
                 opacity: 1
@@ -82,10 +107,12 @@ var SimpleDrawer = (function (_super) {
             overlayOpen: {
                 animationName: [opacityKeyframes],
                 animationDuration: openSpeedSec + "s",
+                animationFillMode: "forwards",
             },
             overlayClose: {
                 animationName: [opacityKeyframesErase],
                 animationDuration: openSpeedSec + "s",
+                animationFillMode: "forwards",
             }
         });
         return cssClass;
@@ -112,6 +139,8 @@ var SimpleDrawer = (function (_super) {
             if (openOnce) {
                 overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayOpen);
                 this.overlayComponent.style.width = "100%";
+                this.overlayComponent.style.height = "100%";
+                navClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).navOpen);
             }
             else {
                 overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayOpenInit);
@@ -122,23 +151,23 @@ var SimpleDrawer = (function (_super) {
             navClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).close);
             if (openOnce) {
                 overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayClose);
+                navClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).navClose);
             }
-            else
-                [
-                    overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayCloseInit)
-                ];
+            else {
+                overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayCloseInit);
+            }
             setTimeout(function () {
                 if (!_this.prevOpen) {
-                    _this.overlayComponent.style.width = "0%";
+                    _this.overlayComponent.style.width = "0px";
+                    _this.overlayComponent.style.height = "0px";
                 }
-            }, this.prevOpenSpeed * 1000);
+            }, this.prevOpenSpeed * 1050);
         }
         openOnce = true;
         this.prevOpen = open ? open : false;
         var lastOverlayClassName = [no_important_1.css(overlayClassNameBase.slice())].join(" ");
         var lastNavClassName = [no_important_1.css(navClassNameBase.slice())].join(" ");
         var navStyleBase = navStyle ? navStyle : {};
-        console.log(navStyleBase);
         return (<div>
                 <div className={lastNavClassName} style={navStyleBase}>
                     {navRender && navRender()}
