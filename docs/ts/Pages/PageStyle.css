@@ -1,3 +1,13 @@
+
+body {
+    background-color: antiquewhite;
+    background-image: url("/image/alpine-1972018_1280.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
 .container {
     position: relative;
     width: 100%;
@@ -27,12 +37,14 @@
 .leftNavLinks  {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .leftNavLinks  * {
     all  : initial;
     user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    position: relative;
 }
 
 .leftNavLinks > li {
@@ -47,6 +59,15 @@
 }
 
 
+.leftNavLinks > li > a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+    align-items: center; /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center; /* 横方向中央揃え */
+}
 
 
 

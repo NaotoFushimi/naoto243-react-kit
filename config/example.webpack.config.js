@@ -50,7 +50,7 @@ module.exports = {
                     {
                         loader : "babel-loader",
                         query: {
-                            cacheDirectory: true,
+                            //cacheDirectory: true,
                             presets: [
                                 ["env", {
                                     "targets": {
@@ -114,14 +114,16 @@ module.exports = {
                             modules: true,
                             localIdentName: "[local]---[hash:base64:10]",
                             sourceMap: false,
-                            importLoaders: 1
+                            importLoaders: 1,
+                            url : false
                         }
                     },
                     {
                         loader:"postcss-loader",
                         options : {
                             plugins: () => [
-                                cssnext
+                                cssnext,
+                                require("postcss-import")
                             ]
                         }
                     }

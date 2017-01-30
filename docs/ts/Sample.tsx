@@ -81,26 +81,37 @@ class SampleApp extends React.Component<any, any>{
         })
     }
 
-    getMenu(link , name){
-        return (
-            <li>
+    getMenu = (link , name)=>{
+    return (
+        <li key={name + "__link"}>
+            <Link
+                onClick={()=> this.toggleOpen()}
+                className={style.navLink}
+                to={link}
+            >
                 <Ink />
-                <Link to={link}>{name}</Link>
-            </li>
-        );
-    }
+                {name}
+            </Link>
+        </li>
+    );
+}
 
-    getLeftMenu(){
-        return (
-            <div className={style.leftNavLinks}>
-                {this.getMenu("/" , "Home")}
-                {this.getMenu("/pl1" , "playground1")}
-            </div>
-        );
-    }
+    getLeftMenu =()=>{
+    return (
+        <div className={style.leftNavLinks}>
+            {this.getMenu("/" , "Home")}
+            {this.getMenu("/pl1" , "playground1")}
+        </div>
+    );
+}
+
 
     render() {
+
+        console.log(window.location.hash)
+
         return (
+
             <HashRouter>
                 <div>
 
@@ -109,7 +120,7 @@ class SampleApp extends React.Component<any, any>{
                     open={this.state.open}
                     navRender={()=>{
                         return (
-                            <div onClick={()=>this.toggleOpen()}>
+                            <div>
                                 {this.getLeftMenu()}
                             </div>
                         );

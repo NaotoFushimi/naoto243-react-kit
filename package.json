@@ -33,6 +33,7 @@
     "mocha": "^3.2.0",
     "naoto243-react-kit": "^0.0.6",
     "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.1.0",
     "postcss-loader": "^1.2.1",
     "power-assert": "^1.4.2",
     "react": "^15.4.2",
