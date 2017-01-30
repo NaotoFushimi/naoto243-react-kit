@@ -39,6 +39,8 @@ const header = ({onTouchMenu})=>{
     );
 }
 
+
+
 const NoMatch = ()=>{
     return (
         <div>
@@ -46,7 +48,6 @@ const NoMatch = ()=>{
         </div>
     );
 }
-
 
 class SampleApp extends React.Component<any, any>{
     constructor(props) {

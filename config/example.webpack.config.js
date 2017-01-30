@@ -109,7 +109,7 @@ module.exports = {
                     {loader:"style-loader"},
                     {
                         //loader:"css-loader?modules&localIdentName=[local]---[hash:base64:10]&sourceMap&importLoaders=1"},
-                        loader: "css-loader",
+                        loader: "css-loader?url=false",
                         options: {
                             modules: true,
                             localIdentName: "[local]---[hash:base64:10]",
@@ -123,7 +123,7 @@ module.exports = {
                         options : {
                             plugins: () => [
                                 cssnext,
-                                require("postcss-import")
+                                //require("postcss-import")
                             ]
                         }
                     }
