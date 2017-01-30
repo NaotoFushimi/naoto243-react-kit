@@ -1,6 +1,7 @@
 # My React Library
 
 es6 module or TypeScript friendly
+[Demo](https://naotofushimi.github.io/naoto243-react-kit/)
 
 install 
 ```$xslt
