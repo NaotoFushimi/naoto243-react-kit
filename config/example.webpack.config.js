@@ -108,18 +108,18 @@ module.exports = {
                 use : [
                     {loader:"style-loader"},
                     {
-                        //loader:"css-loader?modules&localIdentName=[local]---[hash:base64:10]&sourceMap&importLoaders=1"},
-                        loader: "css-loader?url=false",
+                        loader: "css-loader",
                         options: {
                             modules: true,
-                            localIdentName: "[local]---[hash:base64:10]",
+                            localIdentName: "[local]--testApp-[hash:base64:10]",
                             sourceMap: false,
-                            importLoaders: 1,
+                            importLoaders: 0,
+                            root: '.',
                             url : false
-                        }
+                        },
                     },
                     {
-                        loader:"postcss-loader",
+                        loader:"postcss-loader?importLoaders=0",
                         options : {
                             plugins: () => [
                                 cssnext,
@@ -133,7 +133,6 @@ module.exports = {
     },
     externals: {
         //CDNで読み込むやつはここで除外しとくと良い
-
         'react': 'React',
         'react-dom': 'ReactDOM',
         'react-router': 'ReactRouter',

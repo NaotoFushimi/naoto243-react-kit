@@ -39,8 +39,6 @@ const header = ({onTouchMenu})=>{
     );
 }
 
-
-
 const NoMatch = ()=>{
     return (
         <div>
@@ -72,10 +70,6 @@ class SampleApp extends React.Component<any, any>{
         //viewのデストラクタ
     }
 
-    renderLinkRow(){
-
-    }
-
     toggleOpen(){
         this.setState({
             open : !this.state.open
@@ -83,39 +77,35 @@ class SampleApp extends React.Component<any, any>{
     }
 
     getMenu = (link , name)=>{
-    return (
-        <li key={name + "__link"}>
-            <Link
-                onClick={()=> this.toggleOpen()}
-                className={style.navLink}
-                to={link}
-            >
-                <Ink />
-                {name}
-            </Link>
-        </li>
-    );
-}
+        return (
+            <li key={name + "__link"}>
+                <Link
+                    onClick={()=> this.toggleOpen()}
+                    className={style.navLink}
+                    to={link}
+                >
+                    <Ink />
+                    {name} vv
+                </Link>
+            </li>
+        );
+    }
 
     getLeftMenu =()=>{
-    return (
-        <div className={style.leftNavLinks}>
-            {this.getMenu("/" , "Home")}
-            {this.getMenu("/pl1" , "playground1")}
-        </div>
-    );
-}
+        return (
+            <div className={style.leftNavLinks}>
+                {this.getMenu("/" , "Home")}
+                {this.getMenu("/pl1" , "playground1")}
+            </div>
+        );
+    }
 
 
     render() {
-
         console.log(window.location.hash)
-
         return (
-
             <HashRouter>
                 <div>
-
                 <SimpleDrawer
                     onOverlayTap={(e)=> this.toggleOpen()}
                     open={this.state.open}
@@ -132,7 +122,6 @@ class SampleApp extends React.Component<any, any>{
                     }}
 
                     closeOffset="-320px"
-
                 />
                     {header({
                         onTouchMenu : ()=> this.toggleOpen()

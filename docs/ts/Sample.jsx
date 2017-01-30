@@ -44,17 +44,17 @@ var SampleApp = (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.getMenu = function (link, name) {
             return (<li key={name + "__link"}>
-            <react_router_1.Link onClick={function () { return _this.toggleOpen(); }} className={style.navLink} to={link}>
-                <Ink />
-                {name}
-            </react_router_1.Link>
-        </li>);
+                <react_router_1.Link onClick={function () { return _this.toggleOpen(); }} className={style.navLink} to={link}>
+                    <Ink />
+                    {name} vv
+                </react_router_1.Link>
+            </li>);
         };
         _this.getLeftMenu = function () {
             return (<div className={style.leftNavLinks}>
-            {_this.getMenu("/", "Home")}
-            {_this.getMenu("/pl1", "playground1")}
-        </div>);
+                {_this.getMenu("/", "Home")}
+                {_this.getMenu("/pl1", "playground1")}
+            </div>);
         };
         _this.state = {
             open: false
@@ -72,8 +72,6 @@ var SampleApp = (function (_super) {
     SampleApp.prototype.componentWillUnmount = function () {
         //viewのデストラクタ
     };
-    SampleApp.prototype.renderLinkRow = function () {
-    };
     SampleApp.prototype.toggleOpen = function () {
         this.setState({
             open: !this.state.open
@@ -84,7 +82,6 @@ var SampleApp = (function (_super) {
         console.log(window.location.hash);
         return (<react_router_1.HashRouter>
                 <div>
-
                 <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
             return (<div>
                                 {_this.getLeftMenu()}
