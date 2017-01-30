@@ -41,7 +41,7 @@ var SampleApp = (function (_super) {
     function SampleApp(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
-            open: true
+            open: false
         };
         return _this;
     }

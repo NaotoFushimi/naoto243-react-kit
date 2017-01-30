@@ -10,7 +10,7 @@
     "test": "./node_modules/.bin/mocha --compilers ts:espower-typescript/guess  test/spec/*-test.* --timeout 30000",
     "watch": "tsc -w --outDir lib/ --rootDir src/ts -d",
     "prod": "NODE_ENV=production ./node_modules/.bin/webpack -d --progress --colors --config ./config/webpack.config.js",
-    "livereload": "cd sample/build; livereload;",
+    "livereload": "cd docs/js/; livereload;",
     "sample-build": "NODE_ENV=production ./node_modules/.bin/webpack -d --watch --progress --colors --config ./config/example.webpack.config.js"
   },
   "author": "",

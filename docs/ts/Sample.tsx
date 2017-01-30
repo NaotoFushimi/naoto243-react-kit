@@ -48,7 +48,7 @@ class SampleApp extends React.Component<any, any>{
     constructor(props) {
         super(props);
         this.state = {
-            open : true
+            open : false
         }
     }
 

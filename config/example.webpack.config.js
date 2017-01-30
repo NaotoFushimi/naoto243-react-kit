@@ -27,8 +27,7 @@ module.exports = {
         bundle : './docs/ts/Sample.tsx'
     },
     output: {
-        path : "sample",
-        filename: 'sample-build.js',
+        filename: 'docs/js/sample-build.js',
     },
     // Turn on sourcemaps
     devtool: isProduction ? false : 'source-map' ,
