@@ -12,6 +12,7 @@ var SimpleDrawer_1 = require("../../src/ts/SimpleDrawer/SimpleDrawer");
 var Playground0_1 = require("./Pages/Playground0");
 var Playground1_1 = require("./Pages/Playground1");
 var style = require("./Pages/PageStyle.css");
+var Ink = require("react-ink");
 console.log(style);
 var header = function (_a) {
     var onTouchMenu = _a.onTouchMenu;
@@ -20,17 +21,16 @@ var header = function (_a) {
         top: 0,
         left: 0,
         width: "100%",
-        height: "56px",
+        minHeight: "56px",
         backgroundColor: "#A0A0A0",
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        zIndex: 100,
     }}>
-            <div style={{
-        cursor: "pointer"
-    }} onClick={function () { return onTouchMenu(); }}>show menu</div>
-            <a href="https://github.com/NaotoFushimi/naoto243-react-kit">https://github.com/NaotoFushimi/naoto243-react-kit</a>
+            <div className={style.navButton} onClick={function () { return onTouchMenu(); }}>show menu</div>
+            <a href="https://github.com/NaotoFushimi/naoto243-react-kit">to GitHub</a>
         </div>);
 };
 var NoMatch = function () {
@@ -65,6 +65,18 @@ var SampleApp = (function (_super) {
             open: !this.state.open
         });
     };
+    SampleApp.prototype.getMenu = function (link, name) {
+        return (<li>
+                <Ink />
+                <react_router_1.Link to={link}>{name}</react_router_1.Link>
+            </li>);
+    };
+    SampleApp.prototype.getLeftMenu = function () {
+        return (<div className={style.leftNavLinks}>
+                {this.getMenu("/", "Home")}
+                {this.getMenu("/pl1", "playground1")}
+            </div>);
+    };
     SampleApp.prototype.render = function () {
         var _this = this;
         return (<react_router_1.HashRouter>
@@ -72,8 +84,7 @@ var SampleApp = (function (_super) {
 
                 <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
             return (<div onClick={function () { return _this.toggleOpen(); }}>
-                                 <li><react_router_1.Link to="/">Home</react_router_1.Link></li>
-                                 <li><react_router_1.Link to="/pl1">Playground1</react_router_1.Link></li>
+                                {_this.getLeftMenu()}
                             </div>);
         }} navStyle={{
             width: "300px",

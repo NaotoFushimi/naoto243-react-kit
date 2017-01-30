@@ -10,29 +10,31 @@ import Playground0 from "./Pages/Playground0";
 import Playground1 from "./Pages/Playground1";
 const style = require("./Pages/PageStyle.css");
 
+const Ink = require("react-ink");
+
 console.log(style)
 
 const header = ({onTouchMenu})=>{
     return (
-        <div style={{
+        <div
+            style={{
             position : "fixed",
             top : 0,
             left : 0,
             width : "100%",
-            height : "56px",
+            minHeight : "56px",
             backgroundColor : "#A0A0A0",
             display : "flex",
             flexDirection : "row",
             alignItems : "center",
-            justifyContent : "space-around"
+            justifyContent : "space-around",
+            zIndex : 100,
         }}>
             <div
-                style={{
-                    cursor : "pointer"
-                }}
+                className={style.navButton}
                 onClick={()=> onTouchMenu()}
             >show menu</div>
-            <a href="https://github.com/NaotoFushimi/naoto243-react-kit">https://github.com/NaotoFushimi/naoto243-react-kit</a>
+            <a href="https://github.com/NaotoFushimi/naoto243-react-kit">to GitHub</a>
         </div>
     );
 }
@@ -79,6 +81,24 @@ class SampleApp extends React.Component<any, any>{
         })
     }
 
+    getMenu(link , name){
+        return (
+            <li>
+                <Ink />
+                <Link to={link}>{name}</Link>
+            </li>
+        );
+    }
+
+    getLeftMenu(){
+        return (
+            <div className={style.leftNavLinks}>
+                {this.getMenu("/" , "Home")}
+                {this.getMenu("/pl1" , "playground1")}
+            </div>
+        );
+    }
+
     render() {
         return (
             <HashRouter>
@@ -90,8 +110,7 @@ class SampleApp extends React.Component<any, any>{
                     navRender={()=>{
                         return (
                             <div onClick={()=>this.toggleOpen()}>
-                                 <li><Link to="/">Home</Link></li>
-                                 <li><Link to="/pl1">Playground1</Link></li>
+                                {this.getLeftMenu()}
                             </div>
                         );
                     }}
