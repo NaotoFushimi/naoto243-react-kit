@@ -4,7 +4,7 @@ es6 module or TypeScript friendly
 [Demo](https://naotofushimi.github.io/naoto243-react-kit/)
 
 install 
-```$xslt
+```bash
 yarn add naoto243-react-kit
     or 
 npm install naoto243-react-kit --save 
@@ -18,7 +18,7 @@ npm install naoto243-react-kit --save
 ### SimpleCard
 
 #### Usage
-```$xslt
+```jsx
 import {SimpleCard} from "naoto243-react-kit";
 
 <SimpleCard hover={true} />
@@ -31,7 +31,7 @@ hover : boolean (default : false)
 
 #### Usage
 
-```$xslt
+```jsx
 import {SimpleButton} from "naoto243-react-kit";
 
 <SimpleButton >
@@ -45,7 +45,7 @@ none
 ### SimpleDrawer
 
 #### Usage
-```
+```jsx
 import {SimpleDrawer} from "naoto243-react-kit";
 
 <SimpleDrawer
