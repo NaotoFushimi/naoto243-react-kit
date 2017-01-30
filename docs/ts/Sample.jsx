@@ -24,11 +24,13 @@ var header = function (_a) {
         backgroundColor: "#A0A0A0",
         display: "flex",
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "space-around"
     }}>
             <div style={{
         cursor: "pointer"
     }} onClick={function () { return onTouchMenu(); }}>show menu</div>
+            <a href="https://github.com/NaotoFushimi/naoto243-react-kit">https://github.com/NaotoFushimi/naoto243-react-kit</a>
         </div>);
 };
 var NoMatch = function () {

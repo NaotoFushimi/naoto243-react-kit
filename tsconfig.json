@@ -28,8 +28,6 @@
       "@tsroot/*" : ["./src/ts/*" ]
     }
   },
-
-
   "exclude": [
     "node_modules",
     "docs",
