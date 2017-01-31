@@ -44,7 +44,7 @@ var styles = StyleSheet.create({
     },
     clickAnimation: {
         animationName: [onClickKeyframes],
-        animationDuration: '260ms',
+        animationDuration: '210ms',
     },
 });
 export default class SimpleButton extends React.Component {
@@ -58,7 +58,7 @@ export default class SimpleButton extends React.Component {
         this.setState({ isAnimate: true });
         setTimeout(() => {
             this.setState({ isAnimate: false });
-        }, 260);
+        }, 210);
     }
     onClicked(e) {
         if (this.props.onClick != null) {

@@ -78,7 +78,8 @@ export default class SimpleDrawer extends React.Component<SimpleDrawerProps, any
                 position: "fixed",
                 top: 0,
                 WebkitTapHighlightColor: "rgba(0,0,0,0)",
-                //transition: `left ${openSpeedSec}s cubic-bezier(.25,.8,.25,1)`,
+
+        //transition: `left ${openSpeedSec}s cubic-bezier(.25,.8,.25,1)`,
             },
             open :  {
                 left : 0

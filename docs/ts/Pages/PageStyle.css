@@ -1,12 +1,26 @@
-
+html{
+    height:100%;
+    overflow: hidden;
+}
 body {
     background-color: antiquewhite;
     background-image: url("image/alpine-1972018_1280.jpg");
     background-repeat:no-repeat;
-    background-size: cover;
     background-attachment: fixed;
     background-position: center center;
+    background-size: auto 100%;
 }
+
+.background {
+
+}
+
+a {
+    all:initial;
+    text-decoration: none;
+    font-family: arial sans-serif;
+}
+
 
 .container {
     position: relative;
@@ -45,12 +59,13 @@ body {
     position: relative;
 }
 
+/*
 .leftNavLinks  * {
-    all  : initial;
     user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     position: relative;
 }
+*/
 
 .leftNavLinks > li {
     position: relative;

@@ -15,6 +15,7 @@ var PageDecorator_1 = require("./PageDecorator");
 var index_1 = require("../../../src/ts/index");
 var SimpleCard_1 = require("../../../src/ts/SimpleCard/SimpleCard");
 var style = require("./PageStyle.css");
+var Ink = require("react-ink");
 var Highlight = require('react-highlight');
 var codeBlock = "\n<SimpleButton>\n    you can click\n</SimpleButton>\n";
 var Playground1 = (function (_super) {
@@ -30,8 +31,11 @@ var Playground1 = (function (_super) {
                     </Highlight>
                     <hr />
                     <div className={style.componentArea}>
-                        <index_1.SimpleButton>
-                            you can click
+                        <index_1.SimpleButton style={{
+            width: "180px"
+        }}>
+                            <Ink />
+                            with react-ink
                         </index_1.SimpleButton>
                     </div>
                     <div className={style.componentArea}>

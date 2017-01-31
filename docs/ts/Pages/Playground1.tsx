@@ -4,6 +4,8 @@ import {SimpleButton} from "../../../src/ts/index";
 import SimpleCard from "../../../src/ts/SimpleCard/SimpleCard";
 const style = require("./PageStyle.css");
 
+var Ink = require("react-ink");
+
 interface Props {
 
 }
@@ -38,8 +40,11 @@ export default class Playground1 extends React.Component<Props, State>{
                     </Highlight>
                     <hr />
                     <div className={style.componentArea}>
-                        <SimpleButton>
-                            you can click
+                        <SimpleButton style={{
+                            width : "180px"
+                        }}>
+                            <Ink />
+                            with react-ink
                         </SimpleButton>
                     </div>
                     <div className={style.componentArea}>

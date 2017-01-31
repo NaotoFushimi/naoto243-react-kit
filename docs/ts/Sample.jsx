@@ -44,7 +44,7 @@ var SampleApp = (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.getMenu = function (link, name) {
             return (<li key={name + "__link"}>
-                <react_router_1.Link onClick={function () { return _this.toggleOpen(); }} className={style.navLink} to={link}>
+                <react_router_1.Link onClick={function () { return _this.toggleOpen(); }} to={link}>
                     <Ink />
                     {name}
                 </react_router_1.Link>
@@ -82,6 +82,9 @@ var SampleApp = (function (_super) {
         console.log(window.location.hash);
         return (<react_router_1.HashRouter>
                 <div>
+                    <div className={style.background}>
+
+                    </div>
                 <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
             return (<div>
                                 {_this.getLeftMenu()}

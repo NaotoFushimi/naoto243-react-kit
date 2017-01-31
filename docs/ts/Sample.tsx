@@ -81,7 +81,6 @@ class SampleApp extends React.Component<any, any>{
             <li key={name + "__link"}>
                 <Link
                     onClick={()=> this.toggleOpen()}
-                    className={style.navLink}
                     to={link}
                 >
                     <Ink />
@@ -105,7 +104,10 @@ class SampleApp extends React.Component<any, any>{
         console.log(window.location.hash)
         return (
             <HashRouter>
-                <div>
+                <div >
+                    <div className={style.background}>
+
+                    </div>
                 <SimpleDrawer
                     onOverlayTap={(e)=> this.toggleOpen()}
                     open={this.state.open}
