@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {SimpleCardProps} from "./SimpleCardProps";
-import { StyleSheet, css } from 'aphrodite';
+import { StyleSheet, css } from 'aphrodite/no-important';
 
 const styles = StyleSheet.create({
     base: {
@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
         borderRadius: "2px",
         display: "inline-block",
         position : "relative",
-        userSelect  : "none"
+        userSelect  : "none",
+        backgroundColor : "#FFFFFF"
     },
     hover : {
         ':hover': {

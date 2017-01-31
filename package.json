@@ -6,7 +6,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "init": "rm -rf .git && yarn install",
-    "allrun": "npm run watch & npm run sample-build & npm run livereload",
+    "allrun": "npm run watch & npm run sample-build",
     "test": "./node_modules/.bin/mocha --compilers ts:espower-typescript/guess  test/spec/*-test.* --timeout 30000",
     "watch": "tsc -w --outDir lib/ --rootDir src/ts -d",
     "prod": "NODE_ENV=production ./node_modules/.bin/webpack -d --progress --colors --config ./config/webpack.config.js",

@@ -13,6 +13,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var React = require("react");
 var PageDecorator_1 = require("./PageDecorator");
 var index_1 = require("../../../src/ts/index");
+var SimpleCard_1 = require("../../../src/ts/SimpleCard/SimpleCard");
 var style = require("./PageStyle.css");
 var Highlight = require('react-highlight');
 var codeBlock = "\n<SimpleButton>\n    you can click\n</SimpleButton>\n";
@@ -22,27 +23,30 @@ var Playground1 = (function (_super) {
         return _super.call(this, props) || this;
     }
     Playground1.prototype.render = function () {
-        return (<div className="figa">
-                <Highlight className='jsx'>
-                    {codeBlock}
-                </Highlight>
-                <hr />
-                <div className={style.componentArea}>
-                    <index_1.SimpleButton>
-                        you can click
-                    </index_1.SimpleButton>
+        return (<SimpleCard_1.default style={{}}>
+                <div className="figa">
+                    <Highlight className='jsx'>
+                        {codeBlock}
+                    </Highlight>
+                    <hr />
+                    <div className={style.componentArea}>
+                        <index_1.SimpleButton>
+                            you can click
+                        </index_1.SimpleButton>
+                    </div>
+                    <div className={style.componentArea}>
+                        <index_1.SimpleButton>
+                            you can click
+                        </index_1.SimpleButton>
+                    </div>
+                    <div className={style.componentArea}>
+                        <index_1.SimpleButton>
+                            you can click
+                        </index_1.SimpleButton>
+                    </div>
                 </div>
-                <div className={style.componentArea}>
-                    <index_1.SimpleButton>
-                        you can click
-                    </index_1.SimpleButton>
-                </div>
-                <div className={style.componentArea}>
-                    <index_1.SimpleButton>
-                        you can click
-                    </index_1.SimpleButton>
-                </div>
-            </div>);
+
+            </SimpleCard_1.default>);
     };
     return Playground1;
 }(React.Component));

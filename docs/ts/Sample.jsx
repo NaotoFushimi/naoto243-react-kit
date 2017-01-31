@@ -46,7 +46,7 @@ var SampleApp = (function (_super) {
             return (<li key={name + "__link"}>
                 <react_router_1.Link onClick={function () { return _this.toggleOpen(); }} className={style.navLink} to={link}>
                     <Ink />
-                    {name} vv
+                    {name}
                 </react_router_1.Link>
             </li>);
         };
@@ -87,9 +87,9 @@ var SampleApp = (function (_super) {
                                 {_this.getLeftMenu()}
                             </div>);
         }} navStyle={{
-            width: "300px",
+            width: "250px",
             boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
-        }} closeOffset="-320px"/>
+        }} closeOffset="-270px"/>
                     {header({
             onTouchMenu: function () { return _this.toggleOpen(); }
         })}

@@ -14,8 +14,8 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 var React = require("react");
-var aphrodite_1 = require("aphrodite");
-var styles = aphrodite_1.StyleSheet.create({
+var no_important_1 = require("aphrodite/no-important");
+var styles = no_important_1.StyleSheet.create({
     base: {
         boxShadow: "0 2px 1px rgba(0,0,0,0.08),0px 1px 2px 0px rgba(0,0,0,0.18)",
         WebkitTapHighlightColor: "rgba(0,0,0,0)",
@@ -24,7 +24,8 @@ var styles = aphrodite_1.StyleSheet.create({
         borderRadius: "2px",
         display: "inline-block",
         position: "relative",
-        userSelect: "none"
+        userSelect: "none",
+        backgroundColor: "#FFFFFF"
     },
     hover: {
         ':hover': {
@@ -41,7 +42,7 @@ var SimpleCard = (function (_super) {
         var styleBase = [styles.base];
         if (this.props.hover)
             styleBase.push(styles.hover);
-        var lastClassName = [aphrodite_1.css(styleBase.concat([this.props.className]))].join(" ");
+        var lastClassName = [no_important_1.css(styleBase.concat([this.props.className]))].join(" ");
         var _a = this.props, hover = _a.hover, className = _a.className, other = __rest(_a, ["hover", "className"]);
         return (<div className={lastClassName} {...other}>
                 {this.props.children}

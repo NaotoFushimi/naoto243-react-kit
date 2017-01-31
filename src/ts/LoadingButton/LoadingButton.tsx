@@ -47,7 +47,6 @@ export default class LoadingButton extends React.Component<LoadingButtonProps, a
     }
 
     render() {
-
         const {className,style , ...other} = this.props;
         const classNames = [compiled.btn , className].join(" ")
 

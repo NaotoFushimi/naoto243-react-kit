@@ -38,6 +38,22 @@ export default class SimpleDrawer extends React.Component {
         if (cssClass) {
             return cssClass;
         }
+        const navOpenAnim = {
+            'from': {
+                left: closeOffset,
+            },
+            'to': {
+                left: 0,
+            }
+        };
+        const navCloseAnim = {
+            'from': {
+                left: 0,
+            },
+            'to': {
+                left: closeOffset,
+            }
+        };
         cssClass = StyleSheet.create({
             overlay: {
                 position: "fixed",
@@ -57,13 +73,22 @@ export default class SimpleDrawer extends React.Component {
                 position: "fixed",
                 top: 0,
                 WebkitTapHighlightColor: "rgba(0,0,0,0)",
-                transition: `all ${openSpeedSec}s cubic-bezier(.25,.8,.25,1)`,
             },
             open: {
                 left: 0
             },
             close: {
                 left: closeOffset
+            },
+            navOpen: {
+                animationName: [navOpenAnim],
+                animationDuration: `${openSpeedSec}s`,
+                animationFillMode: "forwards",
+            },
+            navClose: {
+                animationName: [navCloseAnim],
+                animationDuration: `${openSpeedSec}s`,
+                animationFillMode: "forwards",
             },
             overlayOpenInit: {
                 opacity: 1
@@ -106,6 +131,7 @@ export default class SimpleDrawer extends React.Component {
                 overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayOpen);
                 this.overlayComponent.style.width = "100%";
                 this.overlayComponent.style.height = "100%";
+                navClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).navOpen);
             }
             else {
                 overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayOpenInit);
@@ -116,11 +142,11 @@ export default class SimpleDrawer extends React.Component {
             navClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).close);
             if (openOnce) {
                 overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayClose);
+                navClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).navClose);
             }
-            else
-                [
-                    overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayCloseInit)
-                ];
+            else {
+                overlayClassNameBase.push(this.getDrawerStyle(this.prevOpenSpeed, this.prevCloseOffset).overlayCloseInit);
+            }
             setTimeout(() => {
                 if (!this.prevOpen) {
                     this.overlayComponent.style.width = "0px";

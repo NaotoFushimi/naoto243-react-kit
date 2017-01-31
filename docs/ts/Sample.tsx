@@ -85,7 +85,7 @@ class SampleApp extends React.Component<any, any>{
                     to={link}
                 >
                     <Ink />
-                    {name} vv
+                    {name}
                 </Link>
             </li>
         );
@@ -117,11 +117,11 @@ class SampleApp extends React.Component<any, any>{
                         );
                     }}
                     navStyle={{
-                        width : "300px",
+                        width : "250px",
                         boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
                     }}
 
-                    closeOffset="-320px"
+                    closeOffset="-270px"
                 />
                     {header({
                         onTouchMenu : ()=> this.toggleOpen()

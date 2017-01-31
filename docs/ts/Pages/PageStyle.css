@@ -22,6 +22,11 @@ body {
 
 .page {
     animation: fadeIn 0.5s ease 0s 1 normal;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 16px;
 }
 
 @keyframes fadeIn {
