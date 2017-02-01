@@ -32,8 +32,7 @@ export default class Playground1 extends React.Component<Props, State>{
 
     render() {
         return (
-            <SimpleCard style={{
-            }}>
+            <SimpleCard className={style.page_card} >
                 <div className="figa">
                     <Highlight className='jsx'>
                         {codeBlock}

@@ -39,11 +39,13 @@ var SimpleCard = (function (_super) {
         return _super.call(this, props) || this;
     }
     SimpleCard.prototype.render = function () {
+        var _a = this.props, hover = _a.hover, className = _a.className, other = __rest(_a, ["hover", "className"]);
         var styleBase = [styles.base];
         if (this.props.hover)
             styleBase.push(styles.hover);
-        var lastClassName = [no_important_1.css(styleBase.concat([this.props.className]))].join(" ");
-        var _a = this.props, hover = _a.hover, className = _a.className, other = __rest(_a, ["hover", "className"]);
+        console.log(className);
+        var lastClassName = [no_important_1.css(styleBase.slice()), className].join(" ");
+        console.log(lastClassName);
         return (<div className={lastClassName} {...other}>
                 {this.props.children}
             </div>);

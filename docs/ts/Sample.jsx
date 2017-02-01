@@ -16,19 +16,7 @@ var Ink = require("react-ink");
 console.log(style);
 var header = function (_a) {
     var onTouchMenu = _a.onTouchMenu;
-    return (<div style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        minHeight: "56px",
-        backgroundColor: "#A0A0A0",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-around",
-        zIndex: 100,
-    }}>
+    return (<div className={style.header}>
             <div className={style.navButton} onClick={function () { return onTouchMenu(); }}>show menu</div>
             <a href="https://github.com/NaotoFushimi/naoto243-react-kit">to GitHub</a>
         </div>);
@@ -81,7 +69,7 @@ var SampleApp = (function (_super) {
     SampleApp.prototype.render = function () {
         var _this = this;
         console.log(window.location.hash);
-        return (<react_router_dom_1.HashRouter>
+        return (<react_router_dom_1.HashRouter hashType="slash">
                 <div>
                     <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
             return (<div>
@@ -99,8 +87,8 @@ var SampleApp = (function (_super) {
         }}>
                         <div className={style.container}>
                             <react_router_dom_1.Switch>
-                                <react_router_dom_1.Route path="/" component={Playground0_1.default}/>
-                                <react_router_dom_1.Route path="/pl1" component={Playground1_1.default}/>
+                                <react_router_dom_1.Route path="/" exact component={Playground0_1.default}/>
+                                <react_router_dom_1.Route path="/pl1" exact component={Playground1_1.default}/>
                                 <react_router_dom_1.Route component={NoMatch}/>
                             </react_router_dom_1.Switch>
                         </div>

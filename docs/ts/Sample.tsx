@@ -16,20 +16,7 @@ console.log(style)
 
 const header = ({onTouchMenu})=>{
     return (
-        <div
-            style={{
-            position : "fixed",
-            top : 0,
-            left : 0,
-            width : "100%",
-            minHeight : "56px",
-            backgroundColor : "#A0A0A0",
-            display : "flex",
-            flexDirection : "row",
-            alignItems : "center",
-            justifyContent : "space-around",
-            zIndex : 100,
-        }}>
+        <div className={style.header}>
             <div
                 className={style.navButton}
                 onClick={()=> onTouchMenu()}
@@ -104,7 +91,7 @@ class SampleApp extends React.Component<any, any>{
     render() {
         console.log(window.location.hash)
         return (
-            <HashRouter>
+            <HashRouter hashType="slash">
                 <div >
                     <SimpleDrawer
                         onOverlayTap={(e)=> this.toggleOpen()}
@@ -131,8 +118,8 @@ class SampleApp extends React.Component<any, any>{
                     }}>
                         <div className={style.container}>
                             <Switch>
-                                <Route path="/" component={Playground0} />
-                                <Route path="/pl1" component={Playground1} />
+                                <Route path="/"    exact component={Playground0} />
+                                <Route path="/pl1" exact component={Playground1} />
                                 <Route component={NoMatch}/>
                             </Switch>
                         </div>

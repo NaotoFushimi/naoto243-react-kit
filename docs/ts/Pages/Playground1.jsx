@@ -24,7 +24,7 @@ var Playground1 = (function (_super) {
         return _super.call(this, props) || this;
     }
     Playground1.prototype.render = function () {
-        return (<SimpleCard_1.default style={{}}>
+        return (<SimpleCard_1.default className={style.page_card}>
                 <div className="figa">
                     <Highlight className='jsx'>
                         {codeBlock}
