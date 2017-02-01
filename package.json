@@ -54,6 +54,7 @@
     "glamor": "^2.20.22",
     "postcss-flow-root": "^0.0.2",
     "radium": "^0.18.1",
-    "react-ink": "^6.1.0"
+    "react-ink": "^6.1.0",
+    "react-router-dom": "next"
   }
 }

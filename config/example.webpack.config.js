@@ -135,7 +135,7 @@ module.exports = {
         //CDNで読み込むやつはここで除外しとくと良い
         'react': 'React',
         'react-dom': 'ReactDOM',
-        'react-router': 'ReactRouter',
+        //'react-router': 'ReactRouter',
         'react-addons-transition-group': 'React.addons.TransitionGroup',
         'react-addons-pure-render-mixin': 'React.addons.PureRenderMixin',
         'react-addons-create-fragment': 'React.addons.createFragment',

@@ -3,7 +3,7 @@ import * as ReactDom from 'react-dom';
 
 //require("babel-polyfill")
 
-import { HashRouter, Match, Miss, Link } from 'react-router'
+import { HashRouter, Switch , Route ,Link } from 'react-router-dom'
 
 import SimpleDrawer from "../../src/ts/SimpleDrawer/SimpleDrawer";
 import Playground0 from "./Pages/Playground0";
@@ -50,6 +50,7 @@ const NoMatch = ()=>{
 class SampleApp extends React.Component<any, any>{
     constructor(props) {
         super(props);
+        console.log("hoge")
         this.state = {
             open : false
         }
@@ -105,26 +106,23 @@ class SampleApp extends React.Component<any, any>{
         return (
             <HashRouter>
                 <div >
-                    <div className={style.background}>
-
-                    </div>
-                <SimpleDrawer
-                    onOverlayTap={(e)=> this.toggleOpen()}
-                    open={this.state.open}
-                    navRender={()=>{
+                    <SimpleDrawer
+                        onOverlayTap={(e)=> this.toggleOpen()}
+                        open={this.state.open}
+                        navRender={()=>{
                         return (
                             <div>
                                 {this.getLeftMenu()}
                             </div>
                         );
                     }}
-                    navStyle={{
+                        navStyle={{
                         width : "250px",
                         boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
                     }}
 
-                    closeOffset="-270px"
-                />
+                        closeOffset="-270px"
+                    />
                     {header({
                         onTouchMenu : ()=> this.toggleOpen()
                     })}
@@ -132,9 +130,11 @@ class SampleApp extends React.Component<any, any>{
                         paddingTop : "56px"
                     }}>
                         <div className={style.container}>
-                            <Match exactly pattern="/" component={Playground0} />
-                            <Match exactly pattern="/pl1" component={Playground1} />
-                            <Miss component={NoMatch}/>
+                            <Switch>
+                                <Route path="/" component={Playground0} />
+                                <Route path="/pl1" component={Playground1} />
+                                <Route component={NoMatch}/>
+                            </Switch>
                         </div>
                     </div>
                 </div>

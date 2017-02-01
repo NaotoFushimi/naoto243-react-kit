@@ -7,7 +7,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var React = require("react");
 var ReactDom = require("react-dom");
 //require("babel-polyfill")
-var react_router_1 = require("react-router");
+var react_router_dom_1 = require("react-router-dom");
 var SimpleDrawer_1 = require("../../src/ts/SimpleDrawer/SimpleDrawer");
 var Playground0_1 = require("./Pages/Playground0");
 var Playground1_1 = require("./Pages/Playground1");
@@ -44,10 +44,10 @@ var SampleApp = (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.getMenu = function (link, name) {
             return (<li key={name + "__link"}>
-                <react_router_1.Link onClick={function () { return _this.toggleOpen(); }} to={link}>
+                <react_router_dom_1.Link onClick={function () { return _this.toggleOpen(); }} to={link}>
                     <Ink />
                     {name}
-                </react_router_1.Link>
+                </react_router_dom_1.Link>
             </li>);
         };
         _this.getLeftMenu = function () {
@@ -56,6 +56,7 @@ var SampleApp = (function (_super) {
                 {_this.getMenu("/pl1", "playground1")}
             </div>);
         };
+        console.log("hoge");
         _this.state = {
             open: false
         };
@@ -80,12 +81,9 @@ var SampleApp = (function (_super) {
     SampleApp.prototype.render = function () {
         var _this = this;
         console.log(window.location.hash);
-        return (<react_router_1.HashRouter>
+        return (<react_router_dom_1.HashRouter>
                 <div>
-                    <div className={style.background}>
-
-                    </div>
-                <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
+                    <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
             return (<div>
                                 {_this.getLeftMenu()}
                             </div>);
@@ -100,13 +98,15 @@ var SampleApp = (function (_super) {
             paddingTop: "56px"
         }}>
                         <div className={style.container}>
-                            <react_router_1.Match exactly pattern="/" component={Playground0_1.default}/>
-                            <react_router_1.Match exactly pattern="/pl1" component={Playground1_1.default}/>
-                            <react_router_1.Miss component={NoMatch}/>
+                            <react_router_dom_1.Switch>
+                                <react_router_dom_1.Route path="/" component={Playground0_1.default}/>
+                                <react_router_dom_1.Route path="/pl1" component={Playground1_1.default}/>
+                                <react_router_dom_1.Route component={NoMatch}/>
+                            </react_router_dom_1.Switch>
                         </div>
                     </div>
                 </div>
-            </react_router_1.HashRouter>);
+            </react_router_dom_1.HashRouter>);
     };
     return SampleApp;
 }(React.Component));
