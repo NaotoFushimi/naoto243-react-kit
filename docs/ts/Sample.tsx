@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 
+require("./style/global.pcss")
+
 //require("babel-polyfill")
 
 import { HashRouter, Switch , Route ,Link } from 'react-router-dom'
@@ -8,7 +10,7 @@ import { HashRouter, Switch , Route ,Link } from 'react-router-dom'
 import SimpleDrawer from "../../src/ts/SimpleDrawer/SimpleDrawer";
 import Playground0 from "./Pages/Playground0";
 import Playground1 from "./Pages/Playground1";
-const style = require("./Pages/PageStyle.css");
+const style = require("./Pages/PageStyle.pcss");
 
 const Ink = require("react-ink");
 

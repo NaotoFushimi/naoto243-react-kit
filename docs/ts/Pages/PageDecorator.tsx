@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const style = require("./PageStyle.css");
+const style = require("./PageStyle.pcss");
 
 const getDisplayName = Component => Component.displayName || Component.name || 'Component';
 

@@ -14,7 +14,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 var React = require("react");
-var style = require("./PageStyle.css");
+var style = require("./PageStyle.pcss");
 var getDisplayName = function (Component) { return Component.displayName || Component.name || 'Component'; };
 function PageDecorater(Component) {
     var clazz = (function (_super) {

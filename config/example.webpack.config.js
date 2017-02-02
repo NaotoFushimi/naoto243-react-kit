@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const cssnext = require('postcss-cssnext');
 const path = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const uglifySaveLicense = require("uglify-save-license");
@@ -33,7 +32,7 @@ module.exports = {
     devtool: isProduction ? false : 'source-map' ,
     cache:true,
     resolve: {
-        extensions: [ '.webpack.js', '.web.js', '.css', '.ts', '.js' , '.tsx' , 'png' , 'jpg' , 'jpeg' , 'gif', 'svg'],
+        extensions: [ '.webpack.js', '.web.js', ".pcss" , '.css', '.ts', '.js' , '.tsx' , 'png' , 'jpg' , 'jpeg' , 'gif', 'svg'],
         alias: {
             //'react': 'react-lite',
             //'react-dom': 'react-lite',
@@ -104,26 +103,28 @@ module.exports = {
             },
 
             {
-                test: /\.css$/,
+                test: /\.(css|pcss)$/,
                 use : [
-                    {loader:"style-loader"},
+                    {
+                        loader:"style-loader"
+                    },
                     {
                         loader: "css-loader",
                         options: {
                             modules: true,
                             localIdentName: "[local]--testApp-[hash:base64:10]",
                             sourceMap: false,
-                            importLoaders: 0,
-                            root: '.',
+                            importLoaders: 1,
                             url : false
                         },
                     },
                     {
-                        loader:"postcss-loader?importLoaders=0",
+                        loader:"postcss-loader",
                         options : {
-                            plugins: () => [
-                                cssnext,
-                                //require("postcss-import")
+                            ident: 'postcss',
+                            plugins: ()=> [
+                                require("postcss-import"),
+                                require('postcss-cssnext'),
                             ]
                         }
                     }

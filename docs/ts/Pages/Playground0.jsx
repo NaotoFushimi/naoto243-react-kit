@@ -13,14 +13,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var React = require("react");
 var PageDecorator_1 = require("./PageDecorator");
 var SimpleCard_1 = require("../../../src/ts/SimpleCard/SimpleCard");
-var style = require("./PageStyle.css");
-var Dummy = function () {
-    return (<div>Hoge</div>);
+var style = require("./PageStyle.pcss");
+var Dummy = function (_a) {
+    var key = _a.key;
+    return (<div key={"__" + key}>Hoge</div>);
 };
 var createDummy = function () {
     var u = [];
     for (var i = 0; i < 100; i++) {
-        u.push(<Dummy />);
+        u.push(<Dummy key={i}/>);
     }
     return u;
 };

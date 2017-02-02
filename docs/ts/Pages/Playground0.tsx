@@ -1,33 +1,24 @@
 import * as React from 'react';
 import {PageDecorater} from "./PageDecorator";
 import SimpleCard from "../../../src/ts/SimpleCard/SimpleCard";
+const style = require("./PageStyle.pcss");
 
-const style = require("./PageStyle.css");
-interface Props {
-
-}
-
-interface State {
-
-}
-
-const Dummy = ()=> {
+const Dummy = ({key})=> {
     return (
-        <div>Hoge</div>
+        <div key={ "__" + key}>Hoge</div>
     );
 }
 
 const createDummy = ()=>{
     const u  : any = []
     for (let i=0; i< 100; i++){
-        u.push(<Dummy />);
+        u.push(<Dummy key={i}  />);
     }
     return u;
 }
 
-
 @PageDecorater
-export default class Playground0 extends React.Component<Props, State>{
+export default class Playground0 extends React.Component<{},{}>{
     constructor(props) {
         super(props);
     }

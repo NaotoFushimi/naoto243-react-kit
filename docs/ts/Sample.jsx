@@ -6,12 +6,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var React = require("react");
 var ReactDom = require("react-dom");
+require("./style/global.pcss");
 //require("babel-polyfill")
 var react_router_dom_1 = require("react-router-dom");
 var SimpleDrawer_1 = require("../../src/ts/SimpleDrawer/SimpleDrawer");
 var Playground0_1 = require("./Pages/Playground0");
 var Playground1_1 = require("./Pages/Playground1");
-var style = require("./Pages/PageStyle.css");
+var style = require("./Pages/PageStyle.pcss");
 var Ink = require("react-ink");
 console.log(style);
 var header = function (_a) {

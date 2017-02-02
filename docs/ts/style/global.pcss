@@ -1,0 +1,29 @@
+@import "./variable.pcss";
+
+html{
+  height:100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: url("image/alpine-1972018_1280.jpg");
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover , cover;
+}
+
+@media (--portrait) {
+  /* styles for small viewport */
+  body {
+    /* background-size:  auto 100%; */
+  }
+}
+
+@media (--landscape) {
+  /* styles for small viewport */
+  body {
+    /* background-size:  100% auto; */
+  }
+}
+
