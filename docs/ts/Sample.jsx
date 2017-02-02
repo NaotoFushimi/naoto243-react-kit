@@ -18,7 +18,7 @@ console.log(style);
 var header = function (_a) {
     var onTouchMenu = _a.onTouchMenu;
     return (<div className={style.header}>
-            <div className={style.navButton} onClick={function () { return onTouchMenu(); }}>show menu</div>
+            <div className={style.navButton} onClick={function () { return onTouchMenu(); }}>Menu</div>
             <a href="https://github.com/NaotoFushimi/naoto243-react-kit">to GitHub</a>
         </div>);
 };

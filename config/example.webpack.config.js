@@ -101,7 +101,6 @@ module.exports = {
                 ],
                 exclude: /node_modules/,
             },
-
             {
                 test: /\.(css|pcss)$/,
                 use : [
@@ -125,6 +124,7 @@ module.exports = {
                             plugins: ()=> [
                                 require("postcss-import"),
                                 require('postcss-cssnext'),
+                                require("postcss-reporter")({ clearMessages: true }),
                             ]
                         }
                     }

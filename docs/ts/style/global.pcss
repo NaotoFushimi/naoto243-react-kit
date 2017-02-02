@@ -1,17 +1,32 @@
 @import "./variable.pcss";
 
 html{
-  height:100%;
+  /* reset */
+  margin: 0;
+  padding: 0;
+  font-family: arial, sans-serif;
   overflow-x: hidden;
+  color : var(--baseTextColor);
+  height:100%;
+  box-sizing: border-box;
+
+  & a {
+    text-decoration: none;
+  }
+
+  & body {
+    background-image: url("image/alpine-1972018_1280.jpg");
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover , cover;
+  }
+
 }
 
-body {
-  background-image: url("image/alpine-1972018_1280.jpg");
-  background-repeat:no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover , cover;
+div {
 }
+
 
 @media (--portrait) {
   /* styles for small viewport */

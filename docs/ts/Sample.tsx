@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-
 require("./style/global.pcss")
 
 //require("babel-polyfill")
@@ -22,7 +21,7 @@ const header = ({onTouchMenu})=>{
             <div
                 className={style.navButton}
                 onClick={()=> onTouchMenu()}
-            >show menu</div>
+            >Menu</div>
             <a href="https://github.com/NaotoFushimi/naoto243-react-kit">to GitHub</a>
         </div>
     );
