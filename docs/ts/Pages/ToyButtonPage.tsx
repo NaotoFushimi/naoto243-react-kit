@@ -22,15 +22,20 @@ export default class ToyButtonPage extends React.Component<Props, State>{
         return (
             <SimpleCard className={style.page_card} >
                 <h1>ToyButton</h1>
-                <ToyButton>
-                    click
-                </ToyButton>
+                <p>
+                    <ToyButton>
+                        click
+                    </ToyButton>
+                </p>
+                <p>
+                    <ToyButton
+                        buttonColor="#F09090"
+                        shadowColor="#A07070">
+                        click
+                    </ToyButton>
 
-                <ToyButton
-                    buttonColor="#F09090"
-                    shadowColor="#A07070">
-                    click
-                </ToyButton>
+                </p>
+
             </SimpleCard>
         );
     }

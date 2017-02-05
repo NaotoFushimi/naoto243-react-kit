@@ -23,13 +23,18 @@ var ToyButtonPage = (function (_super) {
     ToyButtonPage.prototype.render = function () {
         return (<SimpleCard_1.default className={style.page_card}>
                 <h1>ToyButton</h1>
-                <ToyButton_1.default>
-                    click
-                </ToyButton_1.default>
+                <p>
+                    <ToyButton_1.default>
+                        click
+                    </ToyButton_1.default>
+                </p>
+                <p>
+                    <ToyButton_1.default buttonColor="#F09090" shadowColor="#A07070">
+                        click
+                    </ToyButton_1.default>
 
-                <ToyButton_1.default buttonColor="#F09090" shadowColor="#A07070">
-                    click
-                </ToyButton_1.default>
+                </p>
+
             </SimpleCard_1.default>);
     };
     return ToyButtonPage;

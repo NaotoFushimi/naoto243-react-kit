@@ -12,6 +12,7 @@ var SimpleDrawer_1 = require("../../src/ts/SimpleDrawer/SimpleDrawer");
 var Playground0_1 = require("./Pages/Playground0");
 var Playground1_1 = require("./Pages/Playground1");
 var ToyButtonPage_1 = require("./Pages/ToyButtonPage");
+var ExpandMenu_1 = require("../../src/ts/ExpandMenu/ExpandMenu");
 var style = require("./Pages/PageStyle.pcss");
 var Ink = require("react-ink");
 var header = function (_a) {
@@ -30,19 +31,34 @@ var SampleApp = (function (_super) {
     __extends(SampleApp, _super);
     function SampleApp(props) {
         var _this = _super.call(this, props) || this;
-        _this.getMenu = function (link, name) {
-            return (<li key={name + "__link"}>
-                <react_router_dom_1.Link onClick={function () { return _this.toggleOpen(); }} to={link}>
+        _this.ChildMenu = function (_a) {
+            var name = _a.name, open = _a.open;
+            return (<div key={name} className={style.list_item}>
+                <Ink />
+                {name} &nbsp;&nbsp;{open ? "<" : " >"}
+            </div>);
+        };
+        _this.GrandChildMenu = function (_a) {
+            var location = _a.location, name = _a.name;
+            return (<div onClick={function () {
+                console.log(_this.router);
+                _this.router.history.push(location);
+                _this.toggleOpen();
+            }} key={location + name} className={style.nested_item}>
+                <div className={style.nested_item_in}>
                     <Ink />
                     {name}
-                </react_router_dom_1.Link>
-            </li>);
+                </div>
+            </div>);
         };
-        _this.getLeftMenu = function () {
+        _this.AllMenu = function () {
             return (<div className={style.leftNavLinks}>
-                {_this.getMenu("/", "Home")}
-                {_this.getMenu("/pl1", "playground1")}
-                {_this.getMenu("/toybutton", "ToyButton")}
+                <ExpandMenu_1.default key={1} render={function (op) { return <_this.ChildMenu name="Buttons" open={op}/>; }} childList={[
+                <ExpandMenu_1.default key={1} render={function () { return <_this.GrandChildMenu location="/" name="home"/>; }}/>,
+                <ExpandMenu_1.default key={2} render={function () { return <_this.GrandChildMenu location="/play1" name="playground 01"/>; }}/>,
+                <ExpandMenu_1.default key={3} render={function () { return <_this.GrandChildMenu location="/toybutton" name="toybutton"/>; }}/>,
+            ]} className={style.list_item_parent}/>
+                <ExpandMenu_1.default key={2} render={function (p) { return <_this.ChildMenu name="4" open={p}/>; }}/>
             </div>);
         };
         console.log("hoge");
@@ -70,12 +86,10 @@ var SampleApp = (function (_super) {
     SampleApp.prototype.render = function () {
         var _this = this;
         console.log(window.location.hash);
-        return (<react_router_dom_1.HashRouter hashType="slash">
+        return (<react_router_dom_1.HashRouter hashType="slash" ref={function (ref) { return _this.router = ref; }}>
                 <div>
                     <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
-            return (<div>
-                                {_this.getLeftMenu()}
-                            </div>);
+            return (<_this.AllMenu />);
         }} navStyle={{
             width: "250px",
             boxShadow: "0 0 14px rgba(0,0,0,0.50),0 0px 0px 0px rgba(0,0,0,0.24)",
@@ -89,7 +103,7 @@ var SampleApp = (function (_super) {
                         <div className={style.container}>
                             <react_router_dom_1.Switch>
                                 <react_router_dom_1.Route path="/" exact component={Playground0_1.default}/>
-                                <react_router_dom_1.Route path="/pl1" exact component={Playground1_1.default}/>
+                                <react_router_dom_1.Route path="/play1" exact component={Playground1_1.default}/>
                                 <react_router_dom_1.Route path="/toybutton" exact component={ToyButtonPage_1.default}/>
                                 <react_router_dom_1.Route component={NoMatch}/>
                             </react_router_dom_1.Switch>

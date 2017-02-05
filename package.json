@@ -29,6 +29,7 @@
     "css-loader": "^0.26.1",
     "espower-typescript": "^7.0.0",
     "espower-typescript-babel": "^0.2.0",
+    "history": "^4.5.1",
     "linqts": "^1.7.1",
     "mocha": "^3.2.0",
     "naoto243-react-kit": "^0.0.6",

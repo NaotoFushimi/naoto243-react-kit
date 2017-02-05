@@ -8,6 +8,7 @@ import SimpleDrawer from "../../src/ts/SimpleDrawer/SimpleDrawer";
 import Playground0 from "./Pages/Playground0";
 import Playground1 from "./Pages/Playground1";
 import ToyButtonPage from "./Pages/ToyButtonPage";
+import ExpandMenu from "../../src/ts/ExpandMenu/ExpandMenu";
 const style = require("./Pages/PageStyle.pcss");
 
 
@@ -63,44 +64,61 @@ class SampleApp extends React.Component<any, any>{
         })
     }
 
-    getMenu = (link , name)=>{
+    ChildMenu = ({name , open})=>{
         return (
-            <li key={name + "__link"}>
-                <Link
-                    onClick={()=> this.toggleOpen()}
-                    to={link}
-                >
-                    <Ink />
-                    {name}
-                </Link>
-            </li>
-        );
-    }
-
-    getLeftMenu =()=>{
-        return (
-            <div className={style.leftNavLinks}>
-                {this.getMenu("/" , "Home")}
-                {this.getMenu("/pl1" , "playground1")}
-                {this.getMenu("/toybutton" , "ToyButton")}
+            <div key={name} className={style.list_item}>
+                <Ink />
+                {name} &nbsp;&nbsp;{open ? "<" : " >"}
             </div>
         );
     }
 
+    GrandChildMenu = ({location , name})=>{
+        return (
+            <div
+                onClick={()=>{
+                    console.log(this.router)
+                    this.router.history.push(location);
+                    this.toggleOpen()
+                }}
+                key={location + name} className={style.nested_item}>
+                <div  className={style.nested_item_in}>
+                    <Ink />
+                    {name}
+                </div>
+            </div>
+        );
+    }
+
+    AllMenu = ()=> {
+        return (
+            <div className={style.leftNavLinks}>
+                <ExpandMenu key={1} render={(op)=><this.ChildMenu name="Buttons" open={op} />}
+                            childList={[
+                        <ExpandMenu key={1} render={()=><this.GrandChildMenu location="/" name="home" />} />,
+                        <ExpandMenu key={2} render={()=><this.GrandChildMenu location="/play1" name="playground 01" />} />,
+                        <ExpandMenu key={3} render={()=><this.GrandChildMenu location="/toybutton" name="toybutton" />} />,
+                    ]}
+                            className={style.list_item_parent}
+                />
+                <ExpandMenu key={2} render={(p)=><this.ChildMenu name="4" open={p} />}/>
+            </div>
+        );
+    }
+
+    router
 
     render() {
         console.log(window.location.hash)
         return (
-            <HashRouter hashType="slash">
+            <HashRouter hashType="slash" ref={ref => this.router = ref}>
                 <div >
                     <SimpleDrawer
                         onOverlayTap={(e)=> this.toggleOpen()}
                         open={this.state.open}
                         navRender={()=>{
                         return (
-                            <div>
-                                {this.getLeftMenu()}
-                            </div>
+                            <this.AllMenu />
                         );
                     }}
                         navStyle={{
@@ -119,7 +137,7 @@ class SampleApp extends React.Component<any, any>{
                         <div className={style.container}>
                             <Switch>
                                 <Route path="/"    exact component={Playground0} />
-                                <Route path="/pl1" exact component={Playground1} />
+                                <Route path="/play1" exact component={Playground1} />
                                 <Route path="/toybutton" exact component={ToyButtonPage} />
                                 <Route component={NoMatch}/>
                             </Switch>
