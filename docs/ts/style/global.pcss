@@ -15,13 +15,38 @@ html{
   }
 
   & body {
+    /*
     background-image: url("image/alpine-1972018_1280.jpg");
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-position: center center;
     background-size: cover , cover;
+    */
   }
 
+  & pre {
+     & * {
+       font-size: 13px;
+       line-height: 18px;
+     }
+  }
+}
+
+body::before {
+  display: block;
+  position: fixed;
+  background-image: url("image/alpine-1972018_1280.jpg");
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover , cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 108px;
+  content: "";
+  z-index: -1;
 }
 
 div {

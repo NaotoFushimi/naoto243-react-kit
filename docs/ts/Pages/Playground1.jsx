@@ -17,7 +17,7 @@ var SimpleCard_1 = require("../../../src/ts/SimpleCard/SimpleCard");
 var style = require("./PageStyle.pcss");
 var Ink = require("react-ink");
 var Highlight = require('react-highlight');
-var codeBlock = "\n<SimpleButton>\n    you can click\n</SimpleButton>\n";
+var codeBlock = "\n<SimpleButton>\n    <div>\n        <div className={style.componentArea}>\n            <SimpleButton style={{width : \"180px\"}} >\n                <Ink />\n                with react-ink\n            </SimpleButton>\n        </div>\n    </div>\n    you can click\n</SimpleButton>\n";
 var Playground1 = (function (_super) {
     __extends(Playground1, _super);
     function Playground1(props) {
@@ -26,7 +26,7 @@ var Playground1 = (function (_super) {
     Playground1.prototype.render = function () {
         return (<SimpleCard_1.default className={style.page_card}>
                 <div className="figa">
-                    <Highlight className='jsx'>
+                    <Highlight className='html hljs xml' style={{ fontSize: "10px" }}>
                         {codeBlock}
                     </Highlight>
                     <hr />

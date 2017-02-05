@@ -14,15 +14,21 @@ interface State {
 
 }
 
-
 const Highlight = require('react-highlight');
 
 const codeBlock = `
 <SimpleButton>
+    <div>
+        <div className={style.componentArea}>
+            <SimpleButton style={{width : "180px"}} >
+                <Ink />
+                with react-ink
+            </SimpleButton>
+        </div>
+    </div>
     you can click
 </SimpleButton>
 `
-
 
 @PageDecorater
 export default class Playground1 extends React.Component<Props, State>{
@@ -34,7 +40,7 @@ export default class Playground1 extends React.Component<Props, State>{
         return (
             <SimpleCard className={style.page_card} >
                 <div className="figa">
-                    <Highlight className='jsx'>
+                    <Highlight className='html hljs xml' style={{fontSize:"10px"}}>
                         {codeBlock}
                     </Highlight>
                     <hr />

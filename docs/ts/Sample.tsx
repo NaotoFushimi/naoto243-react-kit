@@ -2,18 +2,16 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 require("./style/global.pcss")
 
-//require("babel-polyfill")
-
 import { HashRouter, Switch , Route ,Link } from 'react-router-dom'
 
 import SimpleDrawer from "../../src/ts/SimpleDrawer/SimpleDrawer";
 import Playground0 from "./Pages/Playground0";
 import Playground1 from "./Pages/Playground1";
+import ToyButtonPage from "./Pages/ToyButtonPage";
 const style = require("./Pages/PageStyle.pcss");
 
-const Ink = require("react-ink");
 
-console.log(style)
+const Ink = require("react-ink");
 
 const header = ({onTouchMenu})=>{
     return (
@@ -84,6 +82,7 @@ class SampleApp extends React.Component<any, any>{
             <div className={style.leftNavLinks}>
                 {this.getMenu("/" , "Home")}
                 {this.getMenu("/pl1" , "playground1")}
+                {this.getMenu("/toybutton" , "ToyButton")}
             </div>
         );
     }
@@ -121,6 +120,7 @@ class SampleApp extends React.Component<any, any>{
                             <Switch>
                                 <Route path="/"    exact component={Playground0} />
                                 <Route path="/pl1" exact component={Playground1} />
+                                <Route path="/toybutton" exact component={ToyButtonPage} />
                                 <Route component={NoMatch}/>
                             </Switch>
                         </div>

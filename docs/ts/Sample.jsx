@@ -7,14 +7,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 var React = require("react");
 var ReactDom = require("react-dom");
 require("./style/global.pcss");
-//require("babel-polyfill")
 var react_router_dom_1 = require("react-router-dom");
 var SimpleDrawer_1 = require("../../src/ts/SimpleDrawer/SimpleDrawer");
 var Playground0_1 = require("./Pages/Playground0");
 var Playground1_1 = require("./Pages/Playground1");
+var ToyButtonPage_1 = require("./Pages/ToyButtonPage");
 var style = require("./Pages/PageStyle.pcss");
 var Ink = require("react-ink");
-console.log(style);
 var header = function (_a) {
     var onTouchMenu = _a.onTouchMenu;
     return (<div className={style.header}>
@@ -43,6 +42,7 @@ var SampleApp = (function (_super) {
             return (<div className={style.leftNavLinks}>
                 {_this.getMenu("/", "Home")}
                 {_this.getMenu("/pl1", "playground1")}
+                {_this.getMenu("/toybutton", "ToyButton")}
             </div>);
         };
         console.log("hoge");
@@ -90,6 +90,7 @@ var SampleApp = (function (_super) {
                             <react_router_dom_1.Switch>
                                 <react_router_dom_1.Route path="/" exact component={Playground0_1.default}/>
                                 <react_router_dom_1.Route path="/pl1" exact component={Playground1_1.default}/>
+                                <react_router_dom_1.Route path="/toybutton" exact component={ToyButtonPage_1.default}/>
                                 <react_router_dom_1.Route component={NoMatch}/>
                             </react_router_dom_1.Switch>
                         </div>
