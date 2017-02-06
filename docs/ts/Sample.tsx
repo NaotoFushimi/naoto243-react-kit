@@ -13,15 +13,27 @@ const style = require("./Pages/PageStyle.pcss");
 
 
 const Ink = require("react-ink");
+const FontAwesome = require('react-fontawesome');
 
 const header = ({onTouchMenu})=>{
     return (
         <div className={style.header}>
-            <div
-                className={style.navButton}
-                onClick={()=> onTouchMenu()}
-            >Menu</div>
-            <a href="https://github.com/NaotoFushimi/naoto243-react-kit">to GitHub</a>
+            <div className={style.header_contents}>
+                <div
+                    className={style.navButton}
+                    onClick={()=> onTouchMenu()}>
+                    <FontAwesome
+                        size="2x"
+                        name="bars"
+                    />
+                </div>
+                <a href="https://github.com/NaotoFushimi/naoto243-react-kit">
+                    <FontAwesome
+                        size="2x"
+                        name="github"
+                    />
+                </a>
+            </div>
         </div>
     );
 }
@@ -68,7 +80,12 @@ class SampleApp extends React.Component<any, any>{
         return (
             <div key={name} className={style.list_item}>
                 <Ink />
-                {name} &nbsp;&nbsp;{open ? "<" : " >"}
+                <p>
+                    <span>{name}</span>
+                </p>
+                <FontAwesome
+                    name={open ? "chevron-up" : "chevron-down"}
+                />
             </div>
         );
     }
@@ -106,12 +123,14 @@ class SampleApp extends React.Component<any, any>{
         );
     }
 
-    router
+    router;
 
     render() {
         console.log(window.location.hash)
         return (
-            <HashRouter hashType="slash" ref={ref => this.router = ref}>
+            <HashRouter hashType="slash" ref={ref => {
+                this.router = ref;
+            }}>
                 <div >
                     <SimpleDrawer
                         onOverlayTap={(e)=> this.toggleOpen()}

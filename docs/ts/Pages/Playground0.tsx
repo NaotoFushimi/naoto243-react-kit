@@ -3,16 +3,16 @@ import {PageDecorater} from "./PageDecorator";
 import SimpleCard from "../../../src/ts/SimpleCard/SimpleCard";
 const style = require("./PageStyle.pcss");
 
-const Dummy = ({key})=> {
+const Dummy = ({c})=> {
     return (
-        <div key={ "__" + key}>Hoge</div>
+        <div key={c} > Hoge </div>
     );
 }
 
 const createDummy = ()=>{
     const u  : any = []
     for (let i=0; i< 100; i++){
-        u.push(<Dummy key={i}  />);
+        u.push(<Dummy key={i} c={"hoge_" + i}  />);
     }
     return u;
 }

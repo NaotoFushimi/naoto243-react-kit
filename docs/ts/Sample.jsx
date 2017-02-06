@@ -15,11 +15,18 @@ var ToyButtonPage_1 = require("./Pages/ToyButtonPage");
 var ExpandMenu_1 = require("../../src/ts/ExpandMenu/ExpandMenu");
 var style = require("./Pages/PageStyle.pcss");
 var Ink = require("react-ink");
+var FontAwesome = require('react-fontawesome');
 var header = function (_a) {
     var onTouchMenu = _a.onTouchMenu;
     return (<div className={style.header}>
-            <div className={style.navButton} onClick={function () { return onTouchMenu(); }}>Menu</div>
-            <a href="https://github.com/NaotoFushimi/naoto243-react-kit">to GitHub</a>
+            <div className={style.header_contents}>
+                <div className={style.navButton} onClick={function () { return onTouchMenu(); }}>
+                    <FontAwesome size="2x" name="bars"/>
+                </div>
+                <a href="https://github.com/NaotoFushimi/naoto243-react-kit">
+                    <FontAwesome size="2x" name="github"/>
+                </a>
+            </div>
         </div>);
 };
 var NoMatch = function () {
@@ -35,7 +42,10 @@ var SampleApp = (function (_super) {
             var name = _a.name, open = _a.open;
             return (<div key={name} className={style.list_item}>
                 <Ink />
-                {name} &nbsp;&nbsp;{open ? "<" : " >"}
+                <p>
+                    <span>{name}</span>
+                </p>
+                <FontAwesome name={open ? "chevron-up" : "chevron-down"}/>
             </div>);
         };
         _this.GrandChildMenu = function (_a) {
@@ -86,7 +96,9 @@ var SampleApp = (function (_super) {
     SampleApp.prototype.render = function () {
         var _this = this;
         console.log(window.location.hash);
-        return (<react_router_dom_1.HashRouter hashType="slash" ref={function (ref) { return _this.router = ref; }}>
+        return (<react_router_dom_1.HashRouter hashType="slash" ref={function (ref) {
+            _this.router = ref;
+        }}>
                 <div>
                     <SimpleDrawer_1.default onOverlayTap={function (e) { return _this.toggleOpen(); }} open={this.state.open} navRender={function () {
             return (<_this.AllMenu />);

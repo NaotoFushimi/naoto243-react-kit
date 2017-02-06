@@ -15,13 +15,13 @@ var PageDecorator_1 = require("./PageDecorator");
 var SimpleCard_1 = require("../../../src/ts/SimpleCard/SimpleCard");
 var style = require("./PageStyle.pcss");
 var Dummy = function (_a) {
-    var key = _a.key;
-    return (<div key={"__" + key}>Hoge</div>);
+    var c = _a.c;
+    return (<div key={c}> Hoge </div>);
 };
 var createDummy = function () {
     var u = [];
     for (var i = 0; i < 100; i++) {
-        u.push(<Dummy key={i}/>);
+        u.push(<Dummy key={i} c={"hoge_" + i}/>);
     }
     return u;
 };

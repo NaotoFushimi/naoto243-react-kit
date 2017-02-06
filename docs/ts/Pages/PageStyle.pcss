@@ -5,23 +5,28 @@
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-  justify-content: space-around;
   z-index: 100;
-  color: white;
   height: 56px;
   background-color: var(--primaryColorDark);
+  display: flex;
+  align-items: center;
+  align-content: center;
+
 }
+
+.header_contents {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
 
 .header * {
   color: white;
-}
-
-.navButton {
-  position: relative;
 }
 
 .container {
@@ -59,6 +64,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  user-select: none;
 }
 
 .list_item {
@@ -66,9 +72,18 @@
   position: relative;
   height: 56px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 0.5px  solid  #dcdcdc;
+  user-select: none;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.list_item  p {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .list_item_parent {
@@ -80,6 +95,7 @@
   border-bottom: 0.5px  solid  #dcdcdc;
   background-color: #dcdcdc;
   padding-left: 24px;
+  user-select: none;
 }
 
 .nested_item_in {

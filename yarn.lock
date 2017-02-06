@@ -3474,6 +3474,12 @@ postcss-filter-plugins@^2.0.0:
     postcss "^5.0.4"
     uniqid "^4.0.0"
 
+postcss-flexbugs-fixes@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-2.1.0.tgz#e1048faa9e3b500159208a8efbd8ed147625a268"
+  dependencies:
+    postcss "^5.0.0"
+
 postcss-flow-root@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/postcss-flow-root/-/postcss-flow-root-0.0.2.tgz#c857fb74300c0774ee8c6cf6afe84ca32d14aad6"
@@ -4012,6 +4018,10 @@ react-broadcast@^0.1.2:
     fbjs "^0.8.1"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+react-fontawesome@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-fontawesome/-/react-fontawesome-1.5.0.tgz#879d1b2aa5c48bba551e9237f84993217b5645c4"
 
 react-highlight@^0.9.0:
   version "0.9.0"

@@ -124,7 +124,7 @@ module.exports = {
                             plugins: ()=> [
                                 require("postcss-import"),
                                 require('postcss-cssnext'),
-                                require("postcss-reporter")({ clearMessages: true }),
+                                require('postcss-flexbugs-fixes'),
                             ]
                         }
                     }
