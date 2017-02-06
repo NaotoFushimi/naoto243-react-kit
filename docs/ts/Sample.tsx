@@ -27,6 +27,9 @@ const header = ({onTouchMenu})=>{
                         name="bars"
                     />
                 </div>
+                <div>
+                    <strong>naoto243-react-kit</strong>
+                </div>
                 <a href="https://github.com/NaotoFushimi/naoto243-react-kit">
                     <FontAwesome
                         size="2x"
