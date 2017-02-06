@@ -9,6 +9,7 @@ import Playground0 from "./Pages/Playground0";
 import Playground1 from "./Pages/Playground1";
 import ToyButtonPage from "./Pages/ToyButtonPage";
 import ExpandMenu from "../../src/ts/ExpandMenu/ExpandMenu";
+import SimpleCardPage from "./Pages/SimpleCardPage";
 const style = require("./Pages/PageStyle.pcss");
 
 
@@ -93,6 +94,23 @@ class SampleApp extends React.Component<any, any>{
         );
     }
 
+    ChildMenuLink = ({name , location})=>{
+        return (
+            <div key={name} className={style.list_item}
+                 onClick={()=>{
+                    console.log(this.router)
+                    this.router.history.push(location);
+                    this.toggleOpen()
+                }}
+            >
+                <Ink />
+                <p>
+                    <span>{name}</span>
+                </p>
+            </div>
+        );
+    }
+
     GrandChildMenu = ({location , name})=>{
         return (
             <div
@@ -113,15 +131,22 @@ class SampleApp extends React.Component<any, any>{
     AllMenu = ()=> {
         return (
             <div className={style.leftNavLinks}>
-                <ExpandMenu key={1} render={(op)=><this.ChildMenu name="Buttons" open={op} />}
+                <ExpandMenu key={1} render={()=><this.ChildMenuLink name="Home" location={"/"} />}/>
+                <ExpandMenu key={2} render={(op)=><this.ChildMenu name="Buttons" open={op} />}
                             childList={[
-                        <ExpandMenu key={1} render={()=><this.GrandChildMenu location="/" name="home" />} />,
-                        <ExpandMenu key={2} render={()=><this.GrandChildMenu location="/play1" name="playground 01" />} />,
-                        <ExpandMenu key={3} render={()=><this.GrandChildMenu location="/toybutton" name="toybutton" />} />,
+                        <ExpandMenu key={1} render={()=><this.GrandChildMenu location="/simplebutton" name="SimpleButton" />} />,
+                        <ExpandMenu key={2} render={()=><this.GrandChildMenu location="/toybutton" name="toybutton" />} />,
                     ]}
                             className={style.list_item_parent}
                 />
-                <ExpandMenu key={2} render={(p)=><this.ChildMenu name="4" open={p} />}/>
+                <ExpandMenu
+                    key={3}
+                    render={(op)=><this.ChildMenu name="Cards & List" open={op} />}
+                    childList={[
+                        <ExpandMenu key={1} render={()=><this.GrandChildMenu location="/simplecard" name="SimpleCard" />} />,
+                    ]}
+                    className={style.list_item_parent}
+                />
             </div>
         );
     }
@@ -159,8 +184,9 @@ class SampleApp extends React.Component<any, any>{
                         <div className={style.container}>
                             <Switch>
                                 <Route path="/"    exact component={Playground0} />
-                                <Route path="/play1" exact component={Playground1} />
+                                <Route path="/simplebutton" exact component={Playground1} />
                                 <Route path="/toybutton" exact component={ToyButtonPage} />
+                                <Route path="/simplecard" exact component={SimpleCardPage} />
                                 <Route component={NoMatch}/>
                             </Switch>
                         </div>

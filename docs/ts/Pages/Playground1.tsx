@@ -40,6 +40,7 @@ export default class Playground1 extends React.Component<Props, State>{
         return (
             <SimpleCard className={style.page_card} >
                 <div className="figa">
+                    <h1>SimpleButton</h1>
                     <Highlight className='html hljs xml' style={{fontSize:"10px"}}>
                         {codeBlock}
                     </Highlight>

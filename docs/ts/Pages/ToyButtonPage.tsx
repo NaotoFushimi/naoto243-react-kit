@@ -12,6 +12,20 @@ interface State {
 
 }
 
+const Highlight = require('react-highlight');
+
+const codeBlock = `
+    <ToyButton>
+        click
+    </ToyButton>
+    
+    <ToyButton
+        buttonColor="#F09090"
+        shadowColor="#A07070">
+        click
+    </ToyButton>
+`
+
 @PageDecorater
 export default class ToyButtonPage extends React.Component<Props, State>{
     constructor(props) {
@@ -20,8 +34,13 @@ export default class ToyButtonPage extends React.Component<Props, State>{
 
     render() {
         return (
+
+
             <SimpleCard className={style.page_card} >
                 <h1>ToyButton</h1>
+                <Highlight className='html hljs xml' style={{fontSize:"10px"}}>
+                    {codeBlock}
+                </Highlight>
                 <p>
                     <ToyButton>
                         click

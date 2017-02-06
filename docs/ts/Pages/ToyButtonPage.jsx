@@ -15,6 +15,8 @@ var ToyButton_1 = require("../../../src/ts/ToyButton/ToyButton");
 var PageDecorator_1 = require("./PageDecorator");
 var SimpleCard_1 = require("../../../src/ts/SimpleCard/SimpleCard");
 var style = require("./PageStyle.pcss");
+var Highlight = require('react-highlight');
+var codeBlock = "\n    <ToyButton>\n        click\n    </ToyButton>\n    \n    <ToyButton\n        buttonColor=\"#F09090\"\n        shadowColor=\"#A07070\">\n        click\n    </ToyButton>\n";
 var ToyButtonPage = (function (_super) {
     __extends(ToyButtonPage, _super);
     function ToyButtonPage(props) {
@@ -23,6 +25,9 @@ var ToyButtonPage = (function (_super) {
     ToyButtonPage.prototype.render = function () {
         return (<SimpleCard_1.default className={style.page_card}>
                 <h1>ToyButton</h1>
+                <Highlight className='html hljs xml' style={{ fontSize: "10px" }}>
+                    {codeBlock}
+                </Highlight>
                 <p>
                     <ToyButton_1.default>
                         click

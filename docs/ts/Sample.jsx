@@ -13,6 +13,7 @@ var Playground0_1 = require("./Pages/Playground0");
 var Playground1_1 = require("./Pages/Playground1");
 var ToyButtonPage_1 = require("./Pages/ToyButtonPage");
 var ExpandMenu_1 = require("../../src/ts/ExpandMenu/ExpandMenu");
+var SimpleCardPage_1 = require("./Pages/SimpleCardPage");
 var style = require("./Pages/PageStyle.pcss");
 var Ink = require("react-ink");
 var FontAwesome = require('react-fontawesome');
@@ -51,6 +52,19 @@ var SampleApp = (function (_super) {
                 <FontAwesome name={open ? "chevron-up" : "chevron-down"}/>
             </div>);
         };
+        _this.ChildMenuLink = function (_a) {
+            var name = _a.name, location = _a.location;
+            return (<div key={name} className={style.list_item} onClick={function () {
+                console.log(_this.router);
+                _this.router.history.push(location);
+                _this.toggleOpen();
+            }}>
+                <Ink />
+                <p>
+                    <span>{name}</span>
+                </p>
+            </div>);
+        };
         _this.GrandChildMenu = function (_a) {
             var location = _a.location, name = _a.name;
             return (<div onClick={function () {
@@ -66,12 +80,14 @@ var SampleApp = (function (_super) {
         };
         _this.AllMenu = function () {
             return (<div className={style.leftNavLinks}>
-                <ExpandMenu_1.default key={1} render={function (op) { return <_this.ChildMenu name="Buttons" open={op}/>; }} childList={[
-                <ExpandMenu_1.default key={1} render={function () { return <_this.GrandChildMenu location="/" name="home"/>; }}/>,
-                <ExpandMenu_1.default key={2} render={function () { return <_this.GrandChildMenu location="/play1" name="playground 01"/>; }}/>,
-                <ExpandMenu_1.default key={3} render={function () { return <_this.GrandChildMenu location="/toybutton" name="toybutton"/>; }}/>,
+                <ExpandMenu_1.default key={1} render={function () { return <_this.ChildMenuLink name="Home" location={"/"}/>; }}/>
+                <ExpandMenu_1.default key={2} render={function (op) { return <_this.ChildMenu name="Buttons" open={op}/>; }} childList={[
+                <ExpandMenu_1.default key={1} render={function () { return <_this.GrandChildMenu location="/simplebutton" name="SimpleButton"/>; }}/>,
+                <ExpandMenu_1.default key={2} render={function () { return <_this.GrandChildMenu location="/toybutton" name="toybutton"/>; }}/>,
             ]} className={style.list_item_parent}/>
-                <ExpandMenu_1.default key={2} render={function (p) { return <_this.ChildMenu name="4" open={p}/>; }}/>
+                <ExpandMenu_1.default key={3} render={function (op) { return <_this.ChildMenu name="Cards & List" open={op}/>; }} childList={[
+                <ExpandMenu_1.default key={1} render={function () { return <_this.GrandChildMenu location="/simplecard" name="SimpleCard"/>; }}/>,
+            ]} className={style.list_item_parent}/>
             </div>);
         };
         console.log("hoge");
@@ -118,8 +134,9 @@ var SampleApp = (function (_super) {
                         <div className={style.container}>
                             <react_router_dom_1.Switch>
                                 <react_router_dom_1.Route path="/" exact component={Playground0_1.default}/>
-                                <react_router_dom_1.Route path="/play1" exact component={Playground1_1.default}/>
+                                <react_router_dom_1.Route path="/simplebutton" exact component={Playground1_1.default}/>
                                 <react_router_dom_1.Route path="/toybutton" exact component={ToyButtonPage_1.default}/>
+                                <react_router_dom_1.Route path="/simplecard" exact component={SimpleCardPage_1.default}/>
                                 <react_router_dom_1.Route component={NoMatch}/>
                             </react_router_dom_1.Switch>
                         </div>

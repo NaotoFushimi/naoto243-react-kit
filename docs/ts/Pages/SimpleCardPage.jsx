@@ -12,51 +12,50 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var React = require("react");
 var PageDecorator_1 = require("./PageDecorator");
-var index_1 = require("../../../src/ts/index");
 var SimpleCard_1 = require("../../../src/ts/SimpleCard/SimpleCard");
 var style = require("./PageStyle.pcss");
-var Ink = require("react-ink");
+var Dummy = function (_a) {
+    var c = _a.c;
+    return (<div key={c}> Hoge </div>);
+};
+var createDummy = function () {
+    var u = [];
+    for (var i = 0; i < 100; i++) {
+        u.push(<Dummy key={i} c={"hoge_" + i}/>);
+    }
+    return u;
+};
 var Highlight = require('react-highlight');
-var codeBlock = "\n<SimpleButton>\n    <div>\n        <div className={style.componentArea}>\n            <SimpleButton style={{width : \"180px\"}} >\n                <Ink />\n                with react-ink\n            </SimpleButton>\n        </div>\n    </div>\n    you can click\n</SimpleButton>\n";
-var Playground1 = (function (_super) {
-    __extends(Playground1, _super);
-    function Playground1(props) {
+var codeBlock = "\nimport {SimpleCard} from \"naoto243-react-kit\";\n\n<SimpleCard>\n    ...yourcontent\n</SimpleCard>\n";
+var SimpleCardPage = (function (_super) {
+    __extends(SimpleCardPage, _super);
+    function SimpleCardPage(props) {
         return _super.call(this, props) || this;
     }
-    Playground1.prototype.render = function () {
+    SimpleCardPage.prototype.render = function () {
         return (<SimpleCard_1.default className={style.page_card}>
-                <div className="figa">
-                    <h1>SimpleButton</h1>
+                <div>
+                    <h1>SimpleCard</h1>
+
                     <Highlight className='html hljs xml' style={{ fontSize: "10px" }}>
                         {codeBlock}
                     </Highlight>
-                    <hr />
-                    <div className={style.componentArea}>
-                        <index_1.SimpleButton style={{
-            width: "180px"
-        }}>
-                            <Ink />
-                            with react-ink
-                        </index_1.SimpleButton>
-                    </div>
-                    <div className={style.componentArea}>
-                        <index_1.SimpleButton>
-                            you can click
-                        </index_1.SimpleButton>
-                    </div>
-                    <div className={style.componentArea}>
-                        <index_1.SimpleButton>
-                            you can click
-                        </index_1.SimpleButton>
-                    </div>
+                    <SimpleCard_1.default style={{
+            width: "50%",
+            height: "320px"
+        }}/>
+                    <SimpleCard_1.default style={{
+            width: "10%",
+            height: "320px",
+            marginLeft: "8px"
+        }}/>
                 </div>
-
             </SimpleCard_1.default>);
     };
-    return Playground1;
+    return SimpleCardPage;
 }(React.Component));
-Playground1 = __decorate([
+SimpleCardPage = __decorate([
     PageDecorator_1.PageDecorater
-], Playground1);
+], SimpleCardPage);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = Playground1;
+exports.default = SimpleCardPage;
