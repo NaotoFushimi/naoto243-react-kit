@@ -14,6 +14,7 @@ var Playground1_1 = require("./Pages/Playground1");
 var ToyButtonPage_1 = require("./Pages/ToyButtonPage");
 var ExpandMenu_1 = require("../../src/ts/ExpandMenu/ExpandMenu");
 var SimpleCardPage_1 = require("./Pages/SimpleCardPage");
+var SimpleModalPage_1 = require("./Pages/SimpleModalPage");
 var style = require("./Pages/PageStyle.pcss");
 var Ink = require("react-ink");
 var FontAwesome = require('react-fontawesome');
@@ -88,6 +89,7 @@ var SampleApp = (function (_super) {
                 <ExpandMenu_1.default key={3} render={function (op) { return <_this.ChildMenu name="Cards & List" open={op}/>; }} childList={[
                 <ExpandMenu_1.default key={1} render={function () { return <_this.GrandChildMenu location="/simplecard" name="SimpleCard"/>; }}/>,
             ]} className={style.list_item_parent}/>
+                <ExpandMenu_1.default key={4} render={function () { return <_this.ChildMenuLink name="SimpleModal" location={"/simplemodal"}/>; }}/>
             </div>);
         };
         console.log("hoge");
@@ -137,6 +139,7 @@ var SampleApp = (function (_super) {
                                 <react_router_dom_1.Route path="/simplebutton" exact component={Playground1_1.default}/>
                                 <react_router_dom_1.Route path="/toybutton" exact component={ToyButtonPage_1.default}/>
                                 <react_router_dom_1.Route path="/simplecard" exact component={SimpleCardPage_1.default}/>
+                                <react_router_dom_1.Route path="/simplemodal" exact component={SimpleModalPage_1.default}/>
                                 <react_router_dom_1.Route component={NoMatch}/>
                             </react_router_dom_1.Switch>
                         </div>

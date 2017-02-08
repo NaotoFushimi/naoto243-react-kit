@@ -10,6 +10,7 @@ import Playground1 from "./Pages/Playground1";
 import ToyButtonPage from "./Pages/ToyButtonPage";
 import ExpandMenu from "../../src/ts/ExpandMenu/ExpandMenu";
 import SimpleCardPage from "./Pages/SimpleCardPage";
+import SimpleModalPage from "./Pages/SimpleModalPage";
 const style = require("./Pages/PageStyle.pcss");
 
 
@@ -147,10 +148,10 @@ class SampleApp extends React.Component<any, any>{
                     ]}
                     className={style.list_item_parent}
                 />
+                <ExpandMenu key={4} render={()=><this.ChildMenuLink name="SimpleModal" location={"/simplemodal"} />}/>
             </div>
         );
     }
-
     router;
 
     render() {
@@ -187,6 +188,7 @@ class SampleApp extends React.Component<any, any>{
                                 <Route path="/simplebutton" exact component={Playground1} />
                                 <Route path="/toybutton" exact component={ToyButtonPage} />
                                 <Route path="/simplecard" exact component={SimpleCardPage} />
+                                <Route path="/simplemodal" exact component={SimpleModalPage} />
                                 <Route component={NoMatch}/>
                             </Switch>
                         </div>
