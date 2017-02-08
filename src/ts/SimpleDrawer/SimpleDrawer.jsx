@@ -176,8 +176,8 @@ var SimpleDrawer = (function (_super) {
             if (!open) {
                 return true;
             }
-            if (_this.props.onOverlayTap) {
-                _this.props.onOverlayTap(e);
+            if (onOverlayTap) {
+                onOverlayTap(e);
                 e.preventDefault();
             }
         }} ref={function (ref) { return _this.overlayComponent = ref; }}/>

@@ -209,8 +209,8 @@ export default class SimpleDrawer extends React.Component<SimpleDrawerProps, any
                         if (!open){
                             return true;
                         }
-                        if (this.props.onOverlayTap){
-                            this.props.onOverlayTap(e)
+                        if (onOverlayTap){
+                            onOverlayTap(e)
                             e.preventDefault();
                         }
                     }}
