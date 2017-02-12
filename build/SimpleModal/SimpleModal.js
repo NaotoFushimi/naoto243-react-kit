@@ -67,7 +67,6 @@ let styles = StyleSheet.create({
         top: "20%",
         left: "10%",
         width: "80%",
-        minHeight: "20%",
         userSelect: "none",
         boxShadow: "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)"
     },
@@ -105,7 +104,9 @@ export default class SimpleModal extends React.Component {
             this.isAnimationNow = true;
             setTimeout(() => {
                 this.isAnimationNow = false;
-                this.setState(this.state);
+                if (!this.props.open) {
+                    this.setState(this.state);
+                }
             }, 160);
         }
     }
@@ -126,7 +127,7 @@ export default class SimpleModal extends React.Component {
         if (open != this.prevOpen) {
             this.createAnimation();
         }
-        let lastOverlayStyle = open ? __assign({}, overlayStyle) : { width: 0, height: 0, opacity: 0, overflow: "hidden" };
+        let lastOverlayStyle = open ? __assign({}, overlayStyle) : { width: 0, height: 0, overflow: "hidden" };
         if (this.isAnimationNow) {
             lastOverlayStyle = __assign({}, overlayStyle);
         }

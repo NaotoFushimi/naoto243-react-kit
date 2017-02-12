@@ -43,9 +43,7 @@ var SimpleCard = (function (_super) {
         var styleBase = [styles.base];
         if (this.props.hover)
             styleBase.push(styles.hover);
-        console.log(className);
         var lastClassName = [no_important_1.css(styleBase.slice()), className].join(" ");
-        console.log(lastClassName);
         return (<div className={lastClassName} {...other}>
                 {this.props.children}
             </div>);

@@ -21,8 +21,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var React = require("react");
 var PageDecorator_1 = require("./PageDecorator");
 var SimpleCard_1 = require("../../../src/ts/SimpleCard/SimpleCard");
-var SimpleButton_1 = require("../../../lib/SimpleButton/SimpleButton");
-var SimpleModal_1 = require("../../../lib/SimpleModal/SimpleModal");
+var SimpleButton_1 = require("../../../src/ts/SimpleButton/SimpleButton");
+var SimpleModal_1 = require("../../../src/ts/SimpleModal/SimpleModal");
 var style = require("./PageStyle.pcss");
 var Highlight = require('react-highlight');
 var codeBlock = "\n    <ToyButton>\n        click\n    </ToyButton>\n    \n    <ToyButton\n        buttonColor=\"#F09090\"\n        shadowColor=\"#A07070\">\n        click\n    </ToyButton>\n";
@@ -40,19 +40,30 @@ var SimpleModalPage = (function (_super) {
     };
     SimpleModalPage.prototype.render = function () {
         var _this = this;
+        /*
+        <Highlight className='html hljs xml' style={{fontSize:"10px"}}>
+            {codeBlock}
+        </Highlight>
+        */
         return (<SimpleCard_1.default className={style.page_card}>
                 <h1>SimpleModal</h1>
-                <Highlight className='html hljs xml' style={{ fontSize: "10px" }}>
-                    {codeBlock}
-                </Highlight>
+
                 <SimpleButton_1.default onClick={this.toggleModal.bind(this)}>
                     ShowModal
                 </SimpleButton_1.default>
                 <SimpleModal_1.default fade={true} onOverlayTap={function () {
             _this.toggleModal();
         }} open={this.state.isModalOpen}>
-                    <div>
-                        うんこ
+                    <div className={style.modal}>
+                        <div>
+                            Modal Content!------------------------ascasc--------------ascasc---------------------------------acacs
+                        </div>
+                        <hr />
+                        <div className={style.modal_under_menu}>
+                            <SimpleButton_1.default onClick={this.toggleModal.bind(this)}>
+                                close
+                            </SimpleButton_1.default>
+                        </div>
                     </div>
                 </SimpleModal_1.default>
             </SimpleCard_1.default>);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, css } from 'glamor/aphrodite'
-import {ToyButtonProps} from "@root/src/ts/ToyButton/ToyButtonProps";
+import {ToyButtonProps} from "./ToybuttonProps";
 
 let styles = StyleSheet.create({
     blue: {

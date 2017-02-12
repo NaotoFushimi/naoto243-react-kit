@@ -44,9 +44,7 @@ export default class SimpleCard extends React.Component {
         const styleBase = [styles.base];
         if (this.props.hover)
             styleBase.push(styles.hover);
-        console.log(className);
         const lastClassName = [css([...styleBase]), className].join(" ");
-        console.log(lastClassName);
         return (React.createElement("div", __assign({ className: lastClassName }, other), this.props.children));
     }
 }

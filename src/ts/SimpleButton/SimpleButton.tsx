@@ -60,7 +60,7 @@ export default class SimpleButton extends React.Component<SimpleButtonProps, any
 
     render() {
         const styleBase = [styles.base];
-        const {onHoverClassName , className, ...other} = this.props;
+        const {onHoverClassName , className, onClick ,...other} = this.props;
 
 
         if (this.state.isAnimate == true) {

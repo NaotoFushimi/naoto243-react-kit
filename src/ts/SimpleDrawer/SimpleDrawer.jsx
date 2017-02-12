@@ -121,7 +121,7 @@ var SimpleDrawer = (function (_super) {
     };
     SimpleDrawer.prototype.render = function () {
         var _this = this;
-        var _a = this.props, className = _a.className, style = _a.style, overlayClassName = _a.overlayClassName, overlayStyle = _a.overlayStyle, navClassName = _a.navClassName, navStyle = _a.navStyle, open = _a.open, navRender = _a.navRender, onOverlayTap = _a.onOverlayTap, closeOffset = _a.closeOffset, openSpeedSec = _a.openSpeedSec, other = __rest(_a, ["className", "style", "overlayClassName", "overlayStyle", "navClassName", "navStyle", "open", "navRender", "onOverlayTap", "closeOffset", "openSpeedSec"]);
+        var _a = this.props, className = _a.className, overlayClassName = _a.overlayClassName, overlayStyle = _a.overlayStyle, navClassName = _a.navClassName, navStyle = _a.navStyle, open = _a.open, navRender = _a.navRender, onOverlayTap = _a.onOverlayTap, closeOffset = _a.closeOffset, openSpeedSec = _a.openSpeedSec, other = __rest(_a, ["className", "overlayClassName", "overlayStyle", "navClassName", "navStyle", "open", "navRender", "onOverlayTap", "closeOffset", "openSpeedSec"]);
         if (openSpeedSec != null && openSpeedSec != this.prevOpenSpeed) {
             this.prevOpenSpeed = openSpeedSec;
             cssClass = null;
@@ -168,7 +168,7 @@ var SimpleDrawer = (function (_super) {
         var lastOverlayClassName = [no_important_1.css(overlayClassNameBase.slice())].join(" ");
         var lastNavClassName = [no_important_1.css(navClassNameBase.slice())].join(" ");
         var navStyleBase = navStyle ? navStyle : {};
-        return (<div>
+        return (<div className={className}>
                 <div className={lastNavClassName} style={navStyleBase}>
                     {navRender && navRender()}
                 </div>

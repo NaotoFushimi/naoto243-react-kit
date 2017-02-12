@@ -11,6 +11,7 @@ import ToyButtonPage from "./Pages/ToyButtonPage";
 import ExpandMenu from "../../src/ts/ExpandMenu/ExpandMenu";
 import SimpleCardPage from "./Pages/SimpleCardPage";
 import SimpleModalPage from "./Pages/SimpleModalPage";
+import PopupCardPage from "./Pages/PopupCardPage";
 const style = require("./Pages/PageStyle.pcss");
 
 
@@ -145,6 +146,7 @@ class SampleApp extends React.Component<any, any>{
                     render={(op)=><this.ChildMenu name="Cards & List" open={op} />}
                     childList={[
                         <ExpandMenu key={1} render={()=><this.GrandChildMenu location="/simplecard" name="SimpleCard" />} />,
+                        <ExpandMenu key={2} render={()=><this.GrandChildMenu location="/popupcard" name="PopupCard" />} />,
                     ]}
                     className={style.list_item_parent}
                 />
@@ -189,6 +191,7 @@ class SampleApp extends React.Component<any, any>{
                                 <Route path="/toybutton" exact component={ToyButtonPage} />
                                 <Route path="/simplecard" exact component={SimpleCardPage} />
                                 <Route path="/simplemodal" exact component={SimpleModalPage} />
+                                <Route path="/popupcard" exact component={PopupCardPage} />
                                 <Route component={NoMatch}/>
                             </Switch>
                         </div>

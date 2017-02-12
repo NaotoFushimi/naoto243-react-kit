@@ -21,15 +21,15 @@ if (isProduction){
 }
 
 module.exports = {
-    //target : "web",
+    target : "web",
     entry: {
-        bundle : './docs/ts/Sample.tsx'
+        bundle : [/*"babel-polyfill", */ './docs/ts/Sample.tsx']
     },
     output: {
         filename: 'docs/js/sample-build.js',
     },
     // Turn on sourcemaps
-    devtool: isProduction ? false : 'source-map' ,
+    devtool: isProduction ? false : 'eval' ,
     cache:true,
     resolve: {
         extensions: [ '.webpack.js', '.web.js', ".pcss" , '.css', '.ts', '.js' , '.tsx' , 'png' , 'jpg' , 'jpeg' , 'gif', 'svg'],
@@ -45,18 +45,18 @@ module.exports = {
         rules: [
             {
                 test: /\.ts(x?)$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader : "babel-loader",
-                        query: {
-                            //cacheDirectory: true,
+                        options: {
                             presets: [
+                                "es2015",
                                 ["env", {
-                                    "targets": {
-                                        "browsers": ["last 2 versions", "safari >= 7"]
-                                    }
+                                    browsers: ["last 2 versions"]
                                 }]
                             ],
+                            plugins: ["transform-runtime" , "transform-es2015-block-scoping"]
                         }
                     },
                     {
@@ -67,11 +67,11 @@ module.exports = {
                                 "jsx": "react",
                                 "module": "commonjs",
                                 "sourceMap" : true,
-                                "target" : "es2015",
+                                "target" : "es5",
                                 "allowJs" : true,
                                 "pretty" : true,
                                 "experimentalDecorators": true,
-                                "removeComments": false,
+                                "removeComments": true,
                                 "moduleResolution": "node",
                                 "strictNullChecks": true,
                                 "skipLibCheck": true,     // ビルド高速化（型定義内の型チェック無効化）
@@ -98,8 +98,7 @@ module.exports = {
 
                         }
                     }
-                ],
-                exclude: /node_modules/,
+                ]
             },
             {
                 test: /\.(css|pcss)$/,

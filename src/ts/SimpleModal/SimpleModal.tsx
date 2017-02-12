@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SimpleModalProps from "@root/src/ts/SimpleModal/SimpleModalProps";
+import SimpleModalProps from "./SimpleModalProps";
 
 import { StyleSheet, css } from 'glamor/aphrodite'
 import { keyframes } from 'glamor'
@@ -61,7 +61,6 @@ let styles = StyleSheet.create({
         top : "20%",
         left : "10%",
         width : "80%",
-        minHeight : "20%",
         userSelect : "none",
         boxShadow: "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)"
     },
@@ -85,7 +84,6 @@ let styles = StyleSheet.create({
         animationDuration: `0.15s`,
         animationFillMode : "forwards",
     },
-
 })
 
 export default class SimpleModal extends React.Component<SimpleModalProps , {}> {
@@ -104,7 +102,9 @@ export default class SimpleModal extends React.Component<SimpleModalProps , {}> 
 
             setTimeout(()=>{
                 this.isAnimationNow = false;
-                this.setState(this.state);
+                if (!this.props.open){
+                    this.setState(this.state);
+                }
             } , 160)
         }
     }
@@ -139,7 +139,7 @@ export default class SimpleModal extends React.Component<SimpleModalProps , {}> 
             this.createAnimation();
         }
 
-        let lastOverlayStyle = open? {...{} , ...overlayStyle} : {width : 0 , height : 0 , opacity : 0 , overflow :"hidden"}
+        let lastOverlayStyle = open? {...{} , ...overlayStyle} : {width : 0 , height : 0  , overflow :"hidden"}
         if (this.isAnimationNow){
             lastOverlayStyle = {...overlayStyle};
         }

@@ -129,7 +129,6 @@ export default class SimpleDrawer extends React.Component<SimpleDrawerProps, any
     render() {
 
         const {className ,
-            style ,
             overlayClassName ,
             overlayStyle ,
             navClassName ,
@@ -200,7 +199,7 @@ export default class SimpleDrawer extends React.Component<SimpleDrawerProps, any
         const navStyleBase = navStyle ? navStyle : {};
 
         return (
-            <div >
+            <div className={className}>
                 <div className={lastNavClassName} style={navStyleBase}>
                     {navRender && navRender()}
                 </div>

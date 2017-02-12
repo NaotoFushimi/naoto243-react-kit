@@ -2,8 +2,8 @@ import * as React from 'react';
 import ToyButton from "../../../src/ts/ToyButton/ToyButton";
 import {PageDecorater} from "./PageDecorator";
 import SimpleCard from "../../../src/ts/SimpleCard/SimpleCard";
-import SimpleButton from "../../../lib/SimpleButton/SimpleButton";
-import SimpleModal from "../../../lib/SimpleModal/SimpleModal";
+import SimpleButton from "../../../src/ts/SimpleButton/SimpleButton";
+import SimpleModal from "../../../src/ts/SimpleModal/SimpleModal";
 const style = require("./PageStyle.pcss");
 
 interface Props {
@@ -42,13 +42,16 @@ export default class SimpleModalPage extends React.Component<Props, any>{
     }
 
     render() {
+        /*
+        <Highlight className='html hljs xml' style={{fontSize:"10px"}}>
+            {codeBlock}
+        </Highlight>
+        */
         return (
 
             <SimpleCard className={style.page_card} >
                 <h1>SimpleModal</h1>
-                <Highlight className='html hljs xml' style={{fontSize:"10px"}}>
-                    {codeBlock}
-                </Highlight>
+
                 <SimpleButton onClick={this.toggleModal.bind(this)}>
                     ShowModal
                 </SimpleButton>
@@ -58,8 +61,16 @@ export default class SimpleModalPage extends React.Component<Props, any>{
                         this.toggleModal();
                     }}
                     open={this.state.isModalOpen}>
-                    <div>
-                        うんこ
+                    <div className={style.modal}>
+                        <div>
+                            Modal Content!------------------------ascasc--------------ascasc---------------------------------acacs
+                        </div>
+                        <hr />
+                        <div className={style.modal_under_menu}>
+                            <SimpleButton onClick={this.toggleModal.bind(this)}>
+                                close
+                            </SimpleButton>
+                        </div>
                     </div>
                 </SimpleModal>
             </SimpleCard>

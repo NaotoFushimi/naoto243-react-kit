@@ -14,28 +14,36 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 var React = require("react");
-var aphrodite_1 = require("aphrodite");
-var styles = aphrodite_1.StyleSheet.create({
+var no_important_1 = require("aphrodite/no-important");
+var onClickKeyframes = {
+    '0%': {
+        boxShadow: "0 2px 4px rgba(0,0,0,0.20),0 1px 1px 0px rgba(0,0,0,0.24)"
+    },
+    '50%': {
+        boxShadow: "0 10px 10px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.16)"
+    },
+    '100%': {
+        boxShadow: "0 2px 4px rgba(0,0,0,0.20),0 1px 1px 0px rgba(0,0,0,0.24)"
+    },
+};
+var styles = no_important_1.StyleSheet.create({
     base: {
         boxShadow: "0 2px 4px rgba(0,0,0,0.20),0 1px 1px 0px rgba(0,0,0,0.24)",
         padding: "4px 12px 4px 12px",
         WebkitTapHighlightColor: "rgba(0,0,0,0)",
-        transition: "all 0.2s cubic-bezier(.25,.8,.25,1)",
+        //transition: "all 0.2s cubic-bezier(.25,.8,.25,1)",
         borderRadius: "4px",
         display: "inline-block",
         position: "relative",
         userSelect: "none",
         textAlign: "center",
-        cursor: "pointer"
+        cursor: "pointer",
+        backgroundColor: "#FFFFFF",
     },
-    hover: {
-        ':hover': {
-            boxShadow: "0 10px 10px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.16)"
-        },
+    clickAnimation: {
+        animationName: [onClickKeyframes],
+        animationDuration: '210ms',
     },
-    click: {
-        boxShadow: "0 2px 4px rgba(0,0,0,0.20),0 1px 1px 0px rgba(0,0,0,0.24)"
-    }
 });
 var SimpleButton = (function (_super) {
     __extends(SimpleButton, _super);
@@ -51,7 +59,7 @@ var SimpleButton = (function (_super) {
         this.setState({ isAnimate: true });
         setTimeout(function () {
             _this.setState({ isAnimate: false });
-        }, 120);
+        }, 210);
     };
     SimpleButton.prototype.onClicked = function (e) {
         if (this.props.onClick != null) {
@@ -61,15 +69,14 @@ var SimpleButton = (function (_super) {
     };
     SimpleButton.prototype.render = function () {
         var styleBase = [styles.base];
-        var _a = this.props, onHoverClassName = _a.onHoverClassName, className = _a.className, other = __rest(_a, ["onHoverClassName", "className"]);
+        var _a = this.props, onHoverClassName = _a.onHoverClassName, className = _a.className, onClick = _a.onClick, other = __rest(_a, ["onHoverClassName", "className", "onClick"]);
         if (this.state.isAnimate == true) {
-            styleBase.push(styles.click);
+            styleBase.push(styles.clickAnimation);
         }
         else {
-            styleBase.push(styles.hover);
             onHoverClassName && styleBase.push(onHoverClassName);
         }
-        var lastClassName = [aphrodite_1.css(styleBase.concat([this.props.className]))].join(" ");
+        var lastClassName = [no_important_1.css(styleBase.concat([this.props.className]))].join(" ");
         return (<div onClick={this.onClicked.bind(this)} className={lastClassName} {...other}>
                 {this.state.isAnimate}
                 {this.props.children}
