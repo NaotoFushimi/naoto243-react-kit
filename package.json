@@ -1,6 +1,6 @@
 {
   "name": "naoto243-react-kit",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "my experimental react components library. ",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -54,15 +54,14 @@
     "uglify-save-license": "^0.4.1",
     "url-loader": "^0.5.7",
     "webpack": "beta",
-    "webpack-notifier": "^1.5.0"
+    "webpack-notifier": "^1.5.0",
+    "autoprefixer": "^6.7.0",
+    "postcss-flow-root": "^0.0.2",
+    "react-ink": "^6.1.0",
+    "react-router-dom": "next"
   },
   "dependencies": {
     "aphrodite": "^1.1.0",
-    "autoprefixer": "^6.7.0",
-    "glamor": "^2.20.22",
-    "postcss-flow-root": "^0.0.2",
-    "radium": "^0.18.1",
-    "react-ink": "^6.1.0",
-    "react-router-dom": "next"
+    "glamor": "^2.20.22"
   }
 }
