@@ -37,9 +37,12 @@ export default class PopupCardPage extends React.Component<Props, State>{
     testModal(){
         return (
             <PopupCard show={this.state.page0.open}>
-                <SimpleButton onClick={()=> this.onPage0ShowChange()}>
-                    close
-                </SimpleButton>
+                <div style={{padding : "32px"}}>
+                    <SimpleButton
+                        onClick={()=> this.onPage0ShowChange()}>
+                        close
+                    </SimpleButton>
+                </div>
             </PopupCard>
         );
     }
@@ -51,7 +54,8 @@ export default class PopupCardPage extends React.Component<Props, State>{
                 <div>
                     <h1>Simple Popup Card</h1>
                     <hr />
-                    <SimpleButton onClick={()=> this.onPage0ShowChange()}>
+                    <SimpleButton
+                        onClick={()=> this.onPage0ShowChange()}>
                         <Ink />
                         Show New Page
                     </SimpleButton>
