@@ -40,7 +40,7 @@ export default class PopupCardPage extends React.Component<Props, State>{
                 <div style={{padding : "32px"}}>
                     <SimpleButton
                         onClick={()=> this.onPage0ShowChange()}>
-                        close
+                        close inline
                     </SimpleButton>
                 </div>
             </PopupCard>

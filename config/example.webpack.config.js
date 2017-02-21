@@ -82,6 +82,7 @@ module.exports = {
                                 "types": [
                                     "node"
                                 ],
+                                "outDir" : "build",
                                 "lib": [
                                     "es2015",// 使用する標準型定義の指定（ target が ES5, ES2015 以外の場合に必要）
                                     "es2017",
