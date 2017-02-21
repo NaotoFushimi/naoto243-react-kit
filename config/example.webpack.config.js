@@ -15,10 +15,13 @@ const webpackPlugins = [
 
 if (isProduction){
     //圧縮
+    console.log("!!!")
     webpackPlugins.push(new webpack.optimize.UglifyJsPlugin({
         output: { comments: uglifySaveLicense }   // リリースビルドのみ uglify する
     }));
 }
+
+console.log("isProduction : " + isProduction)
 
 module.exports = {
     target : "web",
@@ -29,7 +32,7 @@ module.exports = {
         filename: 'docs/js/sample-build.js',
     },
     // Turn on sourcemaps
-    devtool: isProduction ? false : 'eval' ,
+    devtool: isProduction ? false : 'inline-source-map' ,
     cache:true,
     resolve: {
         extensions: [ '.webpack.js', '.web.js', ".pcss" , '.css', '.ts', '.js' , '.tsx' , 'png' , 'jpg' , 'jpeg' , 'gif', 'svg'],
@@ -66,7 +69,7 @@ module.exports = {
                             "compilerOptions": {
                                 "jsx": "react",
                                 "module": "commonjs",
-                                "sourceMap" : true,
+                                "sourceMap" : false,
                                 "target" : "es5",
                                 "allowJs" : true,
                                 "pretty" : true,

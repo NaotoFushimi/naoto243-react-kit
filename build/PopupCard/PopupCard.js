@@ -35,24 +35,13 @@ export default class PopupCard extends React.Component {
         catch (err) {
         }
     }
-    _onTouchStart(e) {
-        if (this.props.onTouchStart != null) {
-            this.props.onTouchStart(e);
-        }
-        try {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        catch (err) {
-        }
-    }
     render() {
         const _a = this.props, { show, onClick, className, onTouchStart, style } = _a, otherProps = __rest(_a, ["show", "onClick", "className", "onTouchStart", "style"]);
         if (!this.state.initialShow) {
         }
         const masterStyle = __assign({ zIndex: 100 }, style);
         const masterClassName = [cssClass.card, cssClass.createAnimation(show), className].join(" ");
-        return (React.createElement("div", __assign({ className: masterClassName, onClick: this._onClick.bind(this), onTouchStart: this._onTouchStart.bind(this), style: masterStyle }, otherProps),
+        return (React.createElement("div", __assign({ className: masterClassName, onClick: this._onClick.bind(this), style: masterStyle }, otherProps),
             React.createElement("div", { className: cssClass.cardInline }, this.props.children)));
     }
 }

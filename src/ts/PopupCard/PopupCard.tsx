@@ -23,18 +23,6 @@ export default class PopupCard extends React.Component<PopupCardProps , PopupCar
         }
     }
 
-    _onTouchStart(e){
-        if (this.props.onTouchStart != null){
-            this.props.onTouchStart(e);
-        }
-        try {
-            e.preventDefault();
-            e.stopPropagation();
-        } catch (err){
-
-        }
-    }
-
     render() {
 
         const {show , onClick , className  ,onTouchStart , style ,...otherProps} = this.props;
@@ -50,7 +38,6 @@ export default class PopupCard extends React.Component<PopupCardProps , PopupCar
             <div
                 className={masterClassName}
                 onClick={this._onClick.bind(this)}
-                onTouchStart={this._onTouchStart.bind(this)}
                 style={masterStyle}
                 {...otherProps}
             >
