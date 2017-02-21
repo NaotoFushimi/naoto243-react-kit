@@ -54,12 +54,12 @@ module.exports = {
                         loader : "babel-loader",
                         options: {
                             presets: [
-                                "es2015",
+                                //"es2015",
                                 ["env", {
                                     browsers: ["last 2 versions"]
                                 }]
                             ],
-                            plugins: ["transform-runtime" , "transform-es2015-block-scoping"]
+                            //plugins: ["transform-runtime" , "transform-es2015-block-scoping"]
                         }
                     },
                     {
@@ -70,7 +70,7 @@ module.exports = {
                                 "jsx": "react",
                                 "module": "commonjs",
                                 "sourceMap" : false,
-                                "target" : "es5",
+                                "target" : "es2015",
                                 "allowJs" : true,
                                 "pretty" : true,
                                 "experimentalDecorators": true,
