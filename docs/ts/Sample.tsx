@@ -12,6 +12,7 @@ import ExpandMenu from "../../src/ts/ExpandMenu/ExpandMenu";
 import SimpleCardPage from "./Pages/SimpleCardPage";
 import SimpleModalPage from "./Pages/SimpleModalPage";
 import PopupCardPage from "./Pages/PopupCardPage";
+import LuxbarPage from "./Pages/LuxbarPage";
 const style = require("./Pages/PageStyle.pcss");
 
 
@@ -151,6 +152,15 @@ class SampleApp extends React.Component<any, any>{
                     className={style.list_item_parent}
                 />
                 <ExpandMenu key={4} render={()=><this.ChildMenuLink name="SimpleModal" location={"/simplemodal"} />}/>
+
+                <ExpandMenu
+                    key={5}
+                    render={(op)=><this.ChildMenu name="Menu/Drawer" open={op} />}
+                    childList={[
+                        <ExpandMenu key={2} render={()=><this.GrandChildMenu location="/luxbar" name="Luxbar" />} />,
+                    ]}
+                    className={style.list_item_parent}
+                />
             </div>
         );
     }
@@ -192,6 +202,7 @@ class SampleApp extends React.Component<any, any>{
                                 <Route path="/simplecard" exact component={SimpleCardPage} />
                                 <Route path="/simplemodal" exact component={SimpleModalPage} />
                                 <Route path="/popupcard" exact component={PopupCardPage} />
+                                <Route path="/luxbar" exact component={LuxbarPage} />
                                 <Route component={NoMatch}/>
                             </Switch>
                         </div>
