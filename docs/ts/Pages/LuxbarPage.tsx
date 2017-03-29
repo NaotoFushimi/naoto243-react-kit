@@ -9,22 +9,52 @@ interface Props {
 }
 
 interface State {
-
+    isFixed : boolean;
 }
+
+const Highlight = require('react-highlight');
+
+
+const code = `
+        <Luxbar
+            barMode={this.state.isFixed ? "fixed" : "static"}
+        />
+`;
 
 @PageDecorater
 export default class LuxbarPage extends React.Component<Props, State>{
     constructor(props) {
         super(props);
+
+        this.state  = {
+            isFixed : false
+        }
+    }
+
+    onCheck(e){
+        this.setState(
+            {...this.state ,
+                isFixed : !this.state.isFixed
+            })
     }
 
     render() {
         return (
                 <SimpleCard className={style.page_card} >
-                    <div>
+                    <div style={{height : "420px"}}>
                         <h1>Luxbar</h1>
+
+                        <Highlight className='html hljs xml' style={{fontSize:"10px"}}>
+                            {code}
+                        </Highlight>
                         <hr />
-                        <Luxbar />
+                        mode fixed  <input type="checkbox" onChange={this.onCheck.bind(this)} />
+                        <hr />
+                        <div style={{position : "relative"}}>
+                            <Luxbar
+                                barMode={this.state.isFixed ? "fixed" : "static"}
+                            />
+                        </div>
                     </div>
                 </SimpleCard>
         );

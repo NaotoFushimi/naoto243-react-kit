@@ -2,23 +2,22 @@
 1 verbose cli [ '/Users/fushiminaoto/.nodebrew/node/v7.0.0/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'run',
-1 verbose cli   'allrun' ]
-2 info using npm@3.10.9
+1 verbose cli   'livereload' ]
+2 info using npm@4.1.2
 3 info using node@v7.0.0
-4 verbose run-script [ 'preallrun', 'allrun', 'postallrun' ]
-5 info lifecycle naoto243-react-kit@0.1.0~preallrun: naoto243-react-kit@0.1.0
-6 silly lifecycle naoto243-react-kit@0.1.0~preallrun: no script for preallrun, continuing
-7 info lifecycle naoto243-react-kit@0.1.0~allrun: naoto243-react-kit@0.1.0
-8 verbose lifecycle naoto243-react-kit@0.1.0~allrun: unsafe-perm in lifecycle true
-9 verbose lifecycle naoto243-react-kit@0.1.0~allrun: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/fushiminaoto/project/2017_00/npm-react-publish/node_modules/.bin:/Users/fushiminaoto/.nodebrew/node/v7.0.0/bin:/usr/local/bin:/usr/local/bin/bash:/usr/local/bin/redis-server:/usr/local/bin/redis-cli:/Users/fushiminaoto/.rbenv/shims:/Users/fushiminaoto/.rbenv/bin:/Users/fushiminaoto/.plenv/shims:/Users/fushiminaoto/.plenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin/Users/fushiminaoto/android-sdk/eclipse/sdk/tools:/Users/fushiminaoto/android-sdk/eclipse/sdk/platform-tools:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin:/Users/fushiminaoto/.nodebrew/current/bin:/Users/fushiminaoto/go/bin
-10 verbose lifecycle naoto243-react-kit@0.1.0~allrun: CWD: /Users/fushiminaoto/project/2017_00/npm-react-publish
-11 silly lifecycle naoto243-react-kit@0.1.0~allrun: Args: [ '-c',
-11 silly lifecycle   'npm run watch & npm run sample-build & npm run livereload' ]
-12 silly lifecycle naoto243-react-kit@0.1.0~allrun: Returned: code: 1  signal: null
-13 info lifecycle naoto243-react-kit@0.1.0~allrun: Failed to exec allrun script
-14 verbose stack Error: naoto243-react-kit@0.1.0 allrun: `npm run watch & npm run sample-build & npm run livereload`
+4 verbose run-script [ 'prelivereload', 'livereload', 'postlivereload' ]
+5 info lifecycle naoto243-react-kit@0.1.6~prelivereload: naoto243-react-kit@0.1.6
+6 silly lifecycle naoto243-react-kit@0.1.6~prelivereload: no script for prelivereload, continuing
+7 info lifecycle naoto243-react-kit@0.1.6~livereload: naoto243-react-kit@0.1.6
+8 verbose lifecycle naoto243-react-kit@0.1.6~livereload: unsafe-perm in lifecycle true
+9 verbose lifecycle naoto243-react-kit@0.1.6~livereload: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/fushiminaoto/project/2017_00/npm-react-publish/node_modules/.bin:/usr/local/bin:/usr/local/bin/bash:/usr/local/bin/redis-server:/usr/local/bin/redis-cli:/Users/fushiminaoto/.rbenv/shims:/Users/fushiminaoto/.rbenv/bin:/Users/fushiminaoto/.plenv/shims:/Users/fushiminaoto/.plenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin/Users/fushiminaoto/android-sdk/eclipse/sdk/tools:/Users/fushiminaoto/android-sdk/eclipse/sdk/platform-tools:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin:/Users/fushiminaoto/.nodebrew/current/bin:/Users/fushiminaoto/go/bin
+10 verbose lifecycle naoto243-react-kit@0.1.6~livereload: CWD: /Users/fushiminaoto/project/2017_00/npm-react-publish
+11 silly lifecycle naoto243-react-kit@0.1.6~livereload: Args: [ '-c', 'cd docs/js/; livereload;' ]
+12 silly lifecycle naoto243-react-kit@0.1.6~livereload: Returned: code: 1  signal: null
+13 info lifecycle naoto243-react-kit@0.1.6~livereload: Failed to exec livereload script
+14 verbose stack Error: naoto243-react-kit@0.1.6 livereload: `cd docs/js/; livereload;`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
 14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
@@ -26,21 +25,21 @@
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
-15 verbose pkgid naoto243-react-kit@0.1.0
+15 verbose pkgid naoto243-react-kit@0.1.6
 16 verbose cwd /Users/fushiminaoto/project/2017_00/npm-react-publish/docs
 17 error Darwin 15.6.0
-18 error argv "/Users/fushiminaoto/.nodebrew/node/v7.0.0/bin/node" "/usr/local/bin/npm" "run" "allrun"
+18 error argv "/Users/fushiminaoto/.nodebrew/node/v7.0.0/bin/node" "/usr/local/bin/npm" "run" "livereload"
 19 error node v7.0.0
-20 error npm  v3.10.9
+20 error npm  v4.1.2
 21 error code ELIFECYCLE
-22 error naoto243-react-kit@0.1.0 allrun: `npm run watch & npm run sample-build & npm run livereload`
+22 error naoto243-react-kit@0.1.6 livereload: `cd docs/js/; livereload;`
 22 error Exit status 1
-23 error Failed at the naoto243-react-kit@0.1.0 allrun script 'npm run watch & npm run sample-build & npm run livereload'.
+23 error Failed at the naoto243-react-kit@0.1.6 livereload script 'cd docs/js/; livereload;'.
 23 error Make sure you have the latest version of node.js and npm installed.
 23 error If you do, this is most likely a problem with the naoto243-react-kit package,
 23 error not with npm itself.
 23 error Tell the author that this fails on your system:
-23 error     npm run watch & npm run sample-build & npm run livereload
+23 error     cd docs/js/; livereload;
 23 error You can get information on how to open an issue for this project with:
 23 error     npm bugs naoto243-react-kit
 23 error Or if that isn't available, you can get their info via:

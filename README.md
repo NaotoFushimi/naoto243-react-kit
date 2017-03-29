@@ -74,3 +74,5 @@ onOverlayTap : ()=> func;
 closeOffset : number|string  (default : "-220px")  
 openSpeedSec : number(Seconds);    
 
+---
+

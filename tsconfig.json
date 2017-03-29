@@ -6,8 +6,8 @@
     "target" : "es2015",
     "allowJs" : false,
     "pretty" : true,
-    "experimentalDecorators": true,
     "removeComments": false,
+    "experimentalDecorators": true,
     "moduleResolution": "node",
     "strictNullChecks": true,
     "skipLibCheck": true,     // ビルド高速化（型定義内の型チェック無効化）

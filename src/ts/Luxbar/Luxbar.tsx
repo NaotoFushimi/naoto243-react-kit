@@ -1,43 +1,63 @@
 import * as React from 'react';
+import {LuxbarProps} from "./LuxbarProps";
 
-interface Props {
+require("./LuxbarCSS")
 
-}
-
-interface State {
-
-}
-
-export default class Luxbar extends React.Component<Props, State>{
+export default class Luxbar extends React.Component<LuxbarProps  ,{}>{
     constructor(props) {
         super(props);
     }
 
-    render() {
-        return (
-            <div>
-                <div className="luxbar-fixed">
-                    <input type="checkbox" id="luxbar-checkbox"/>
-                    <div className="luxbar-menu luxbar-menu-right luxbar-menu-material-cyan">
-                        <ul className="luxbar-navigation">
-                            <li className="luxbar-header">
-                                <a href="#" className="luxbar-brand">LUXBAR</a>
-                                <label className="luxbar-hamburger luxbar-hamburger-doublespin"
-                                       id="luxbar-hamburger"
-                                       htmlFor="luxbar-checkbox"
-                                >
-                                    <span>
+    getBarClassName() : string{
 
-                                    </span>
+        const {
+            barMode
+        } = this.props;
+
+        let barClassName = "naoto243-luxbar-fixed"
+        switch (barMode){
+            case "static": {
+                barClassName = "naoto243-luxbar-static";
+                break;
+            }
+            case "fixed": {
+                barClassName = "naoto243-luxbar-fixed"
+                break;
+            }
+            default : {
+                barClassName = "naoto243-luxbar-static"
+                break;
+            }
+        }
+
+        return barClassName;
+
+    }
+
+    render() {
+
+        return (
+            <div className={`naoto243-luxbar ${this.getBarClassName()}`}>
+                <input type="checkbox" id="naoto243-luxbar-checkbox" className="naoto243-luxbar-checkbox" />
+                    <div className="naoto243-luxbar-menu naoto243-luxbar-menu-right naoto243-luxbar-menu-dark">
+                        <ul className="naoto243-luxbar-navigation">
+                            <li className="naoto243-luxbar-header">
+                                <a className="naoto243-luxbar-brand" >Brand</a>
+                                <label className="naoto243-luxbar-hamburger naoto243-luxbar-hamburger-doublespin"
+                                       htmlFor="naoto243-luxbar-checkbox">
+                                    <span></span>
                                 </label>
                             </li>
-                            <li className="luxbar-item"><a href="#">Item 1</a></li>
-                            <li className="luxbar-item"><a href="#">Item 2</a></li>
-                            <li className="luxbar-item"><a href="#">Item 3</a></li>
-                            <li className="luxbar-item"><a href="#">Item 4</a></li>
+                            <li className="naoto243-luxbar-item active"><a>Home</a></li>
+                            <li className="naoto243-luxbar-item naoto243-lux-dropdown"><a >Users</a>
+                                <ul>
+                                    <li className="naoto243-luxbar-item" ><a >Max</a></li>
+                                    <li className="naoto243-luxbar-item" ><a >Edgar</a></li>
+                                    <li className="naoto243-luxbar-item" ><a >John</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
-                </div>
             </div>
         );
     }
