@@ -17,7 +17,7 @@ if (isProduction){
     //圧縮
     console.log("!!!")
     webpackPlugins.push(new webpack.optimize.UglifyJsPlugin({
-        output: { comments: uglifySaveLicense }   // リリースビルドのみ uglify する
+        //output: { comments: uglifySaveLicense }   // リリースビルドのみ uglify する
     }));
 }
 
