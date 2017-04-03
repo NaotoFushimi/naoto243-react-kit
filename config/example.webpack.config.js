@@ -69,7 +69,7 @@ module.exports = {
                             "compilerOptions": {
                                 "jsx": "react",
                                 "module": "commonjs",
-                                "sourceMap" : false,
+                                "sourceMap" : !isProduction,
                                 "target" : "es2015",
                                 "allowJs" : true,
                                 "pretty" : true,
